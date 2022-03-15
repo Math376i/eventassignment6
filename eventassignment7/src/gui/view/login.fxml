@@ -8,15 +8,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorpaneBackground" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #85b785;" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.LoginController">
     <children>
         <AnchorPane layoutX="93.0" layoutY="50.0" prefHeight="462.0" prefWidth="426.0" style="-fx-background-color: white; -fx-border-style: solid; -fx-blend-mode: overlay; -fx-border-width: 2;" styleClass="AnchorPane" stylesheets="@../css/StyleSheet.css" />
-        <TextField fx:id="lblUsername" layoutX="204.0" layoutY="192.0" prefHeight="34.0" prefWidth="203.0" promptText="Username" AnchorPane.topAnchor="192.0" />
-        <Button layoutX="316.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLoginBtn" prefHeight="32.0" prefWidth="90.0" text="Login" textFill="WHITE" AnchorPane.topAnchor="300.0" />
         <CheckBox layoutX="380.0" layoutY="479.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="129.0" text="Remember login" />
-        <PasswordField fx:id="lblPassword" layoutX="204.0" layoutY="246.0" prefHeight="34.0" prefWidth="203.0" promptText="Password" AnchorPane.topAnchor="246.0" />
         <ImageView disable="true" fitHeight="107.0" fitWidth="179.0" layoutX="216.0" layoutY="85.0" AnchorPane.topAnchor="85.0">
         </ImageView>
         <Label layoutX="114.0" layoutY="479.0" text="Forgot Login" />
@@ -25,15 +21,13 @@
             <Image url="@../img/logo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lblUsername" blendMode="OVERLAY" fitHeight="600.0" fitWidth="600.0">
+      <ImageView blendMode="OVERLAY" fitHeight="600.0" fitWidth="600.0">
          <image>
             <Image url="@../img/background.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="392.0" layoutY="562.0" text="Charged Events" textFill="#9c1414">
-         <font>
-            <Font name="Arial Black" size="24.0" />
-         </font>
-      </Label>
+        <Button layoutX="316.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLoginBtn" prefHeight="32.0" prefWidth="90.0" text="Login" textFill="#ef43f2" AnchorPane.topAnchor="300.0" />
+        <TextField fx:id="lblUsername" layoutX="204.0" layoutY="192.0" prefHeight="34.0" prefWidth="203.0" promptText="Username" AnchorPane.topAnchor="192.0" />
+        <PasswordField fx:id="lblPassword" layoutX="204.0" layoutY="246.0" prefHeight="34.0" prefWidth="203.0" promptText="Password" AnchorPane.topAnchor="246.0" />
     </children>
 </AnchorPane>

@@ -8,13 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AdminDAO {
-
+Admin admin;
 
     public static Admin createKoordinator(String Username, String Password) {
 
         int insertedId = -1;
         try{
-            String sqlStatement = "INSERT INTO Movie (title,personalRating,imdbRating,filelink,lastview) VALUES (?, ?, ?, ?, ?);";
+            String sqlStatement = "INSERT INTO eventassignment(username,password) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1,Username);
             statement.setFloat(2, Float.parseFloat(Password));
@@ -33,7 +33,7 @@ public class AdminDAO {
 
     public void updateKoordiantor(Admin admin) throws Exception {
 
-        String sql = "UPDATE Movie SET username=? password=? WHERE Id=?;";
+        String sql = "UPDATE eventassignment SET username=? password=? WHERE Id=?;";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
         preparedStatement.setString(1, admin.getUsername());
         preparedStatement.setFloat(2, admin.getPassword());
@@ -46,7 +46,7 @@ public class AdminDAO {
 
         public static boolean deletekoordinator(Admin admin) {
             try{
-                String sqlStatement = "DELETE FROM Movie WHERE id=?";
+                String sqlStatement = "DELETE FROM eventassignment WHERE id=?";
                 PreparedStatement statement = con.prepareStatement(sqlStatement);
                 statement.setInt(1,koordinatorDelete.getUsername());
                 statement.execute();

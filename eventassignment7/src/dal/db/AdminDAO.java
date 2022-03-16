@@ -31,7 +31,7 @@ Admin admin;
                 String password = rs.getString("password");
 
                 int id = rs.getInt("id");
-                allCoordinators.add(new Coordinator(insertedId, name, username, password));
+                allCoordinators.add(new Coordinator(id, name, username, password));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -59,7 +59,7 @@ Admin admin;
 
 
 
-    public boolean updateCoordiantor(Admin admin) throws Exception {
+    public boolean updateCoordinator(Admin admin) throws Exception {
 
         String sql = "UPDATE eventAssignment SET username=? password=? WHERE Id=?;";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
@@ -72,11 +72,11 @@ Admin admin;
 
         }
 
-        public boolean deleteCoordinator(Admin deleteCoordinator) {
+        public boolean deleteCoordinator(Coordinator deleteCoordinator) {
             try{
                 String sqlStatement = "DELETE FROM Coordinator WHERE id=?";
                 PreparedStatement statement = con.prepareStatement(sqlStatement);
-                statement.setObject(1,deleteCoordinator);
+                statement.setObject(1,deleteCoordinator.getId);
                 statement.execute();
                 return true;
             } catch (SQLException e) {

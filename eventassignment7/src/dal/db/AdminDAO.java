@@ -1,8 +1,11 @@
 package dal.db;
 
 import be.Admin;
+import be.Coordinator;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminDAO {
 
@@ -14,14 +17,35 @@ public class AdminDAO {
 
 Admin admin;
 
-    public Admin createCoordinator(String Username, String Password) {
+    public List<Coordinator> getCoordinators() {
+        List<Coordinator> allCoordinators = new ArrayList<>();
+        try {
+            String sqlStatement = "SELECT * FROM [EventAssignment].[dbo].[Coordinator]";
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sqlStatement);
+            while (rs.next()) {
+                String name = rs.getString("name");
+
+                String username = rs.getString("username");
+
+                String password = rs.getString("password");
+
+                int id = rs.getInt("id");
+                allCoordinators.add(new Coordinator(insertedId, name, username, password));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return allCoordinators;
+    }
+    public Coordinator createCoordinator(String name, String username, String password) {
 
         int insertedId = -1;
         try{
-            String sqlStatement = "INSERT INTO EventAssignment(username,password) VALUES (?, ?, ?, ?, ?);";
+            String sqlStatement = "INSERT INTO EventAssignment(username,password) VALUES (?, ?);";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1,Username);
-            statement.setFloat(2, Float.parseFloat(Password));
+            statement.setString(1,username);
+            statement.setString(2, password);
             statement.execute();
             ResultSet rs =statement.getGeneratedKeys();
             rs.next();
@@ -29,13 +53,13 @@ Admin admin;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new Admin(Username,Password);
+        return new Coordinator(insertedId, name, username, password);
     }
 
 
 
 
-    public void updateCoordiantor(Admin admin) throws Exception {
+    public boolean updateCoordiantor(Admin admin) throws Exception {
 
         String sql = "UPDATE eventAssignment SET username=? password=? WHERE Id=?;";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
@@ -50,9 +74,9 @@ Admin admin;
 
         public boolean deleteCoordinator(Admin deleteCoordinator) {
             try{
-                String sqlStatement = "DELETE FROM EventAssignment WHERE id=?";
+                String sqlStatement = "DELETE FROM Coordinator WHERE id=?";
                 PreparedStatement statement = con.prepareStatement(sqlStatement);
-                statement.setObject(1,admin.());
+                statement.setObject(1,deleteCoordinator);
                 statement.execute();
                 return true;
             } catch (SQLException e) {

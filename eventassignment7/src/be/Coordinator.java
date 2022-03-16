@@ -1,9 +1,16 @@
 package be;
 
-public class Coordinator(String username, String password) {
+public class Coordinator {
 
+    private String name;
     private String username;
     private String password;
+
+    public Coordinator(int insertedId, String name, String username, String password) {
+    this.name = name;
+    this.username = username;
+    this.password = password;
+    }
 
 
     public String getUsername() {

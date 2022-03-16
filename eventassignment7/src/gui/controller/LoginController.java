@@ -1,11 +1,9 @@
-package gui.Controller;
+package gui.controller;
 
 import gui.util.SceneSwapper;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 

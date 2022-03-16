@@ -1,4 +1,4 @@
-package gui.Controller;
+package gui.controller;
 
 public class CoordinatorScreenController {
 }

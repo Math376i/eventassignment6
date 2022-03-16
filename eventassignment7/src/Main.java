@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        fxmlLoaderMain = new FXMLLoader(getClass().getResource("./gui/view/login.fxml"));
+        fxmlLoaderMain = new FXMLLoader(getClass().getResource("gui/view/Login.fxml"));
         primaryStage.centerOnScreen();
         Scene scene = new Scene(fxmlLoaderMain.load());
         primaryStage.setResizable(false);

@@ -2,16 +2,33 @@ package be;
 
 public class Coordinator {
 
+    private int id;
     private String name;
     private String username;
     private String password;
 
-    public Coordinator(int insertedId, String name, String username, String password) {
+    public Coordinator(int id, String name, String username, String password) {
+    this.id = id;
     this.name = name;
     this.username = username;
     this.password = password;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getUsername() {
         return String.valueOf(username);

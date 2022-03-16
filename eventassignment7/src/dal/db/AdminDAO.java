@@ -2,12 +2,13 @@ package dal.db;
 
 import be.Admin;
 import be.Coordinator;
+import dal.Interfaces.IAdmin;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminDAO {
+public class AdminDAO implements IAdmin {
 
     private Connection con;
 
@@ -56,16 +57,11 @@ Admin admin;
         return new Coordinator(insertedId, name, username, password);
     }
 
-
-
-
     public boolean updateCoordinator(Admin admin) throws Exception {
-
         String sql = "UPDATE eventAssignment SET username=? password=? WHERE Id=?;";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
         preparedStatement.setString(1, admin.getUsername());
         preparedStatement.setString(2, admin.getPassword());
-
 
         int affectedRows = preparedStatement.executeUpdate();
         if(affectedRows != 1) {
@@ -76,7 +72,7 @@ Admin admin;
             try{
                 String sqlStatement = "DELETE FROM Coordinator WHERE id=?";
                 PreparedStatement statement = con.prepareStatement(sqlStatement);
-                statement.setObject(1,deleteCoordinator.getId);
+                statement.setInt(1,deleteCoordinator.getId);
                 statement.execute();
                 return true;
             } catch (SQLException e) {
@@ -84,5 +80,4 @@ Admin admin;
             }
             return false;
         }
-
 }

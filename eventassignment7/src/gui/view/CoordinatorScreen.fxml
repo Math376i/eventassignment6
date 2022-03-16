@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.controller.CoordinatorScreenController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
+   <children>
+      <TableView layoutX="54.0" layoutY="66.0" prefHeight="278.0" prefWidth="362.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Name" />
+          <TableColumn prefWidth="75.0" text="Email" />
+            <TableColumn prefWidth="75.0" text="PhoneNumber" />
+            <TableColumn prefWidth="75.0" text="Event" />
+        </columns>
+      </TableView>
+      <Button layoutX="416.0" layoutY="361.0" mnemonicParsing="false" text="Add Event" />
+      <Button layoutX="306.0" layoutY="361.0" mnemonicParsing="false" text="Add Costumer" />
+      <Button layoutX="221.0" layoutY="361.0" mnemonicParsing="false" text="Add Billet" />
+      <Button layoutX="115.0" layoutY="361.0" mnemonicParsing="false" text="Edit Costumer" />
+      <Button layoutX="515.0" layoutY="361.0" mnemonicParsing="false" text="Log ud" />
+   </children>
 </AnchorPane>

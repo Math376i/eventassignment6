@@ -4,13 +4,13 @@ public class Admin {
 
    private String username;
    private String password;
-   private int Username;
+
 
    public Admin(String username, String password) {;
    }
 
    public String getUsername() {
-      return String.valueOf(Username);
+      return username;
    }
 
    public void setUsername(String username) {

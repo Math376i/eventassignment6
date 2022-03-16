@@ -6,12 +6,12 @@ import dal.db.AdminDAO;
 public class AdminManager {
 
 
-    public boolean deletekoordinator(Admin koordinatorDelete){
-        return AdminDAO.deletekoordinator(koordinatorDelete);
+    public boolean deleteCoordinator(Admin koordinatorDelete){
+        return AdminDAO.deleteCoordinator(koordinatorDelete);
     }
 
     public Admin createKoordinator(Admin admin) {
         System.out.println(Admin.getUsername());
-        return AdminDAO.createKoordinator(admin.getUsername().getPassword());
+        return AdminDAO.createCoordinator(admin.getUsername().getPassword());
     }
 }

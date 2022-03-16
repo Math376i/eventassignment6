@@ -18,7 +18,7 @@ Admin admin;
 
         int insertedId = -1;
         try{
-            String sqlStatement = "INSERT INTO eventAssignment(username,password) VALUES (?, ?, ?, ?, ?);";
+            String sqlStatement = "INSERT INTO EventAssignment(username,password) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1,Username);
             statement.setFloat(2, Float.parseFloat(Password));
@@ -50,7 +50,7 @@ Admin admin;
 
         public boolean deleteCoordinator(Admin deleteCoordinator) {
             try{
-                String sqlStatement = "DELETE FROM eventAssignment WHERE id=?";
+                String sqlStatement = "DELETE FROM EventAssignment WHERE id=?";
                 PreparedStatement statement = con.prepareStatement(sqlStatement);
                 statement.setObject(1,admin.());
                 statement.execute();

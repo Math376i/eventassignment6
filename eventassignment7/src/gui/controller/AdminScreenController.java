@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -36,18 +37,15 @@ public class AdminScreenController implements Initializable {
     @FXML
     private TableColumn<Coordinator, String> tcEvent;
 
-    CoordinatorModel coordinatorModel;
+    private SceneSwapper sceneSwapper;
+    private CoordinatorModel coordinatorModel;
 
     private ObservableList<Coordinator> allCoordinators;
 
-    public void onAddCoordinatorBtn(ActionEvent actionEvent) throws IOException {
-        SceneSwapper sceneSwapper = new SceneSwapper();
-        sceneSwapper.sceneSwitch(new Stage(), "AdminAddEventManagerScreen.fxml");
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        sceneSwapper = new SceneSwapper();
         coordinatorModel = new CoordinatorModel();
         allCoordinators = FXCollections.observableArrayList();
         fillTableVew();
@@ -55,9 +53,17 @@ public class AdminScreenController implements Initializable {
     }
 
     /**
+     *
+     */
+    public void onAddCoordinatorBtn(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(), "AdminAddEventManagerScreen.fxml");
+        fillTableVew();
+    }
+
+    /**
      * fills tableview with all coordinators
      */
-    private void fillTableVew(){
+    private void fillTableVew() {
         tcName.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("Name"));
         tcUsername.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("username"));
         tcPassword.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("password"));
@@ -67,9 +73,10 @@ public class AdminScreenController implements Initializable {
 
     /**
      * returns all coordinators
+     *
      * @return
      */
-    private ObservableList<Coordinator> getAllCoordinators(){
+    private ObservableList<Coordinator> getAllCoordinators() {
         allCoordinators.clear();
         allCoordinators.addAll(coordinatorModel.getAllCoordinators());
         return allCoordinators;
@@ -78,6 +85,7 @@ public class AdminScreenController implements Initializable {
 
     /**
      * removes a coordinator
+     *
      * @param actionEvent
      */
     public void onRemoveCoordinatorBtn(ActionEvent actionEvent) {
@@ -86,5 +94,12 @@ public class AdminScreenController implements Initializable {
             coordinatorModel.removeCoordinator(tvCoordinators.getSelectionModel().getSelectedItem());
         });
         fillTableVew();
+    }
+
+    public void onLogoutBtn(ActionEvent actionEvent) throws IOException {
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        sceneSwapper.sceneSwitch(new Stage(), "Login.fxml");
+        stage.close();
     }
 }

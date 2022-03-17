@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
+<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
    <children>
-      <TableView layoutX="54.0" layoutY="66.0" prefHeight="278.0" prefWidth="362.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Name" />
-          <TableColumn prefWidth="75.0" text="Email" />
-            <TableColumn prefWidth="119.20001220703125" text="PhoneNumber" />
-            <TableColumn prefWidth="92.0" text="Event" />
-        </columns>
-      </TableView>
-      <Button layoutX="416.0" layoutY="361.0" mnemonicParsing="false" text="Add Event" />
-      <Button layoutX="306.0" layoutY="361.0" mnemonicParsing="false" text="Add Costumer" />
-      <Button layoutX="221.0" layoutY="361.0" mnemonicParsing="false" text="Add Billet" />
-      <Button layoutX="115.0" layoutY="361.0" mnemonicParsing="false" text="Edit Costumer" />
-      <Button layoutX="515.0" layoutY="361.0" mnemonicParsing="false" text="Log ud" />
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="550.0">
+      <AnchorPane layoutX="257.0" layoutY="27.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
+      <AnchorPane layoutX="45.0" layoutY="114.0" prefHeight="515.0" prefWidth="822.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
+         <children>
+            <Button layoutX="753.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="54.0" text="Back" />
+            <Accordion layoutX="99.0" layoutY="121.0" />
+            <TableView layoutX="38.0" layoutY="63.0" prefHeight="389.0" prefWidth="299.0">
+              <columns>
+                <TableColumn prefWidth="147.1999969482422" text="Event" />
+                  <TableColumn prefWidth="74.39996337890625" text="Date" />
+                  <TableColumn minWidth="0.0" prefWidth="79.20001220703125" text="Location" />
+              </columns>
+            </TableView>
+            <Label layoutX="38.0" layoutY="27.0" text="This is Your Events">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" text="Create Event" />
+            <Button layoutX="381.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateGuest" text="Create Geust" />
+            <Button layoutX="138.0" layoutY="465.0" mnemonicParsing="false" text="Manage Event" />
+            <TableView layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
+              <columns>
+                <TableColumn prefWidth="131.20001220703125" text="Name" />
+                <TableColumn prefWidth="89.5999755859375" text="Email" />
+                  <TableColumn prefWidth="74.39996337890625" text="Number" />
+                  <TableColumn prefWidth="104.7999267578125" text="Ticket Name" />
+              </columns>
+            </TableView>
+            <Label layoutX="381.0" layoutY="27.0" text="Guest for your event">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button layoutX="505.0" layoutY="465.0" mnemonicParsing="false" text="Manage Guest" />
+            <Button layoutX="710.0" layoutY="27.0" mnemonicParsing="false" text="Guest List" />
+            <Button layoutX="243.0" layoutY="465.0" mnemonicParsing="false" text="Remove Event" />
+            <Button layoutX="638.0" layoutY="465.0" mnemonicParsing="false" text="Remove Guest" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="301.0" layoutY="27.0" styleClass="logo" AnchorPane.topAnchor="27.0">
          <image>
             <Image url="@../img/logo.png" />
          </image>

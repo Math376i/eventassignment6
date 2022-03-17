@@ -11,7 +11,7 @@ public class AdminScreenController {
 
     public void onAddCoordinatorBtn(ActionEvent actionEvent) throws IOException {
         SceneSwapper sceneSwapper = new SceneSwapper();
-
         sceneSwapper.sceneSwitch(new Stage(), "AdminAddEventManagerScreen.fxml");
     }
+
 }

@@ -14,13 +14,13 @@
       <AnchorPane layoutX="38.0" layoutY="114.0" minHeight="10.0" minWidth="10.0" prefHeight="400.0" prefWidth="800.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
          <children>
             <Button layoutX="660.0" layoutY="320.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="107.0" text="Logout" />
-            <TableView layoutX="31.0" layoutY="28.0" prefHeight="336.0" prefWidth="599.0">
+            <TableView fx:id="tvCoordinators" layoutX="31.0" layoutY="28.0" prefHeight="336.0" prefWidth="599.0">
               <columns>
-                <TableColumn prefWidth="124.0" text="Coordinators" />
-                <TableColumn minWidth="7.20001220703125" prefWidth="102.40000915527344" text="Name" />
-                  <TableColumn minWidth="0.0" prefWidth="75.20001220703125" text="Username" />
-                  <TableColumn minWidth="0.0" prefWidth="75.20001220703125" text="Password" />
-                  <TableColumn minWidth="0.0" prefWidth="219.20000000000005" text="Event" />
+                <TableColumn fx:id="tcCoordinator" prefWidth="124.0" text="Coordinators" />
+                <TableColumn fx:id="tcName" minWidth="7.20001220703125" prefWidth="102.40000915527344" text="Name" />
+                  <TableColumn fx:id="tcUsername" minWidth="0.0" prefWidth="75.20001220703125" text="Username" />
+                  <TableColumn fx:id="tcPassword" minWidth="0.0" prefWidth="75.20001220703125" text="Password" />
+                  <TableColumn fx:id="tcEvent" minWidth="0.0" prefWidth="219.20000000000005" text="Event" />
               </columns>
             </TableView>
             <Button layoutX="651.0" layoutY="182.0" mnemonicParsing="false" onAction="#onAddCoordinatorBtn" prefHeight="27.0" prefWidth="128.0" text="Add Coordinator" />

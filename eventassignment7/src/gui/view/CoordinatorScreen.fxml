@@ -5,15 +5,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
    <children>
       <TableView layoutX="54.0" layoutY="66.0" prefHeight="278.0" prefWidth="362.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Name" />
           <TableColumn prefWidth="75.0" text="Email" />
-            <TableColumn prefWidth="75.0" text="PhoneNumber" />
-            <TableColumn prefWidth="75.0" text="Event" />
+            <TableColumn prefWidth="119.20001220703125" text="PhoneNumber" />
+            <TableColumn prefWidth="92.0" text="Event" />
         </columns>
       </TableView>
       <Button layoutX="416.0" layoutY="361.0" mnemonicParsing="false" text="Add Event" />

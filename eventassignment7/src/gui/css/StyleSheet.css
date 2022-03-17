@@ -19,7 +19,9 @@
 }
 
 .backgrounding{
-    -fx-background-image: url('../img/Background.jpeg');
+    -fx-background-image: url('../img/Background.png');
+    -fx-background-size: 1000;
+    -fx-background-position: center;
 }
 
 .whitebackground{

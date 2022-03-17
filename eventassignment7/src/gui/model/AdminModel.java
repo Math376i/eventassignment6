@@ -16,6 +16,7 @@ public class AdminModel {
 
    
 
+    /*
     public Admin createKoordinator(Admin admin) {
         return AdminManager.createKoordinator(admin);
     }
@@ -27,5 +28,7 @@ public class AdminModel {
     public boolean deletekoordinator(Admin koordinatorDelete) {
         return AdminManager.deleteKoordinator(koordinatorDelete);
     }
-    
+
+     */
+
 }

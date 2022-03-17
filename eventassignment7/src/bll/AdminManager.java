@@ -21,9 +21,11 @@ private AdminDAO adminDAO;
     }
 
 
+    /*
     public boolean deleteCoordinator(Coordinator coordinatorDelete){
         return AdminDAO.deleteCoordinator(coordinatorDelete);
     }
+     */
 
     public Coordinator createCoordinator(Coordinator coordinator) {
 

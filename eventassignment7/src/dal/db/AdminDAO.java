@@ -16,7 +16,7 @@ public class AdminDAO implements IAdmin {
         con = connection;
     }
 
-Admin admin;
+    Admin admin;
 
     public List<Coordinator> getCoordinators() {
         List<Coordinator> allCoordinators = new ArrayList<>();
@@ -39,45 +39,53 @@ Admin admin;
         }
         return allCoordinators;
     }
-    public Coordinator createCoordinator(String name, String username, String password) {
+
+    @Override
+    public Coordinator createCoordinator(int id, String name, String username, String password) {
 
         int insertedId = -1;
-        try{
+        try {
             String sqlStatement = "INSERT INTO EventAssignment(username,password) VALUES (?, ?);";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1,username);
+            statement.setString(1, username);
             statement.setString(2, password);
             statement.execute();
-            ResultSet rs =statement.getGeneratedKeys();
+            ResultSet rs = statement.getGeneratedKeys();
             rs.next();
             insertedId = rs.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return new Coordinator(insertedId, name, username, password);
+
     }
 
-    public boolean updateCoordinator(Admin admin) throws Exception {
+    @Override
+    public void updateCoordinator(Coordinator coordinator) throws Exception {
         String sql = "UPDATE eventAssignment SET username=? password=? WHERE Id=?;";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
         preparedStatement.setString(1, admin.getUsername());
         preparedStatement.setString(2, admin.getPassword());
 
         int affectedRows = preparedStatement.executeUpdate();
-        if(affectedRows != 1) {
+        if (affectedRows != 1) {
 
         }
 
-        public boolean deleteCoordinator(Coordinator deleteCoordinator) {
-            try{
-                String sqlStatement = "DELETE FROM Coordinator WHERE id=?";
-                PreparedStatement statement = con.prepareStatement(sqlStatement);
-                statement.setInt(1,deleteCoordinator.getId);
-                statement.execute();
-                return true;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            return false;
+    }
+
+    @Override
+    public boolean deleteCoordinator(Coordinator deleteCoordinator) {
+        try {
+            String sqlStatement = "DELETE FROM Coordinator WHERE Id=?";
+            PreparedStatement statement = con.prepareStatement(sqlStatement);
+            statement.setInt(1, deleteCoordinator.getId());
+            statement.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return false;
+    }
+
 }

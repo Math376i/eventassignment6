@@ -19,11 +19,11 @@ public class SceneSwapper {
          */
         public void sceneSwitch(Stage stage, String fxmlClassName) throws IOException {
 
-            URL url = new File("src/gui/view/" + fxmlClassName).toURI().toURL();
+            URL url = new File("eventassignment7/src/gui/view/" + fxmlClassName).toURI().toURL();
             Parent scene = FXMLLoader.load(url);
 
             Scene ViewScene = new Scene(scene);
-            stage.setTitle("Absence Manager");
+            stage.setTitle("Ticket Master");
             //Image image = new Image("/gui/Images/icon.png");
             //stage.getIcons().add(image);
             stage.setScene(ViewScene);

@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.view.Template">
+<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
    <children>
       <AnchorPane layoutX="257.0" layoutY="27.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="38.0" layoutY="114.0" prefHeight="515.0" prefWidth="822.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">

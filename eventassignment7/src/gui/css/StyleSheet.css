@@ -15,7 +15,9 @@
 }
 
 .button{
-    -fx-background-radius: 40;
+    -fx-background-radius: 60;
+    -fx-border-color: black;
+    -fx-border-radius: 60;
 }
 
 .backgrounding{
@@ -25,10 +27,11 @@
 }
 
 .whitebackground{
-    -fx-border-color: #0288d1;
+    -fx-border-color: black;
     -fx-background-color: white;
     -fx-arc-width: 2;
     -fx-border-style: solid;
-
-
+}
+.logo{
+    -fx-position-shape: center;
 }

@@ -19,7 +19,7 @@
 }
 
 .backgrounding{
-    -fx-background-color: #03a9f4;
+    -fx-background-image: url('../img/Background.jpeg');
 }
 
 .whitebackground{
@@ -27,6 +27,6 @@
     -fx-background-color: white;
     -fx-arc-width: 2;
     -fx-border-style: solid;
-    
+
 
 }

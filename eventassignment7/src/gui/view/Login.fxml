@@ -16,11 +16,6 @@
         <ImageView disable="true" fitHeight="107.0" fitWidth="179.0" layoutX="216.0" layoutY="85.0" AnchorPane.topAnchor="85.0">
         </ImageView>
         <Label layoutX="114.0" layoutY="479.0" text="Forgot Login" />
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="206.0" layoutY="39.0">
-         <image>
-            <Image url="@../img/logo.png" />
-         </image>
-      </ImageView>
       <ImageView blendMode="OVERLAY" fitHeight="600.0" fitWidth="600.0">
          <image>
             <Image url="@../img/background.jpg" />
@@ -29,5 +24,10 @@
         <Button layoutX="316.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLoginBtn" prefHeight="32.0" prefWidth="90.0" text="Login" textFill="#ef43f2" AnchorPane.topAnchor="300.0" />
         <TextField fx:id="lblUsername" layoutX="204.0" layoutY="192.0" prefHeight="34.0" prefWidth="203.0" promptText="Username" AnchorPane.topAnchor="192.0" />
         <PasswordField fx:id="lblPassword" layoutX="204.0" layoutY="246.0" prefHeight="34.0" prefWidth="203.0" promptText="Password" AnchorPane.topAnchor="246.0" />
+      <ImageView layoutX="231.0" layoutY="84.0">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

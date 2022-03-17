@@ -4,10 +4,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminScreenController">
+<AnchorPane prefHeight="374.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminScreenController">
    <children>
       <TableView layoutX="26.0" layoutY="60.0" prefHeight="278.0" prefWidth="384.0">
         <columns>
@@ -18,8 +19,14 @@
             <TableColumn prefWidth="75.0" text="Events" />
         </columns>
       </TableView>
-      <Button layoutX="505.0" layoutY="352.0" mnemonicParsing="false" text="Log ud" />
-      <Button layoutX="441.0" layoutY="352.0" mnemonicParsing="false" text="Add" />
+      <Button layoutX="356.0" layoutY="352.0" mnemonicParsing="false" text="Log ud" />
+      <Button layoutX="225.0" layoutY="352.0" mnemonicParsing="false" text="Add" />
       <TextField layoutX="26.0" layoutY="22.0" />
+      <Button layoutX="285.0" layoutY="352.0" mnemonicParsing="false" text="Button" />
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="462.0" layoutY="8.0">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

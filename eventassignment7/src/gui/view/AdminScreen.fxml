@@ -16,15 +16,14 @@
             <Button layoutX="660.0" layoutY="320.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="107.0" text="Logout" />
             <TableView fx:id="tvCoordinators" layoutX="31.0" layoutY="28.0" prefHeight="336.0" prefWidth="599.0">
               <columns>
-                <TableColumn fx:id="tcCoordinator" prefWidth="124.0" text="Coordinators" />
-                <TableColumn fx:id="tcName" minWidth="7.20001220703125" prefWidth="102.40000915527344" text="Name" />
-                  <TableColumn fx:id="tcUsername" minWidth="0.0" prefWidth="75.20001220703125" text="Username" />
-                  <TableColumn fx:id="tcPassword" minWidth="0.0" prefWidth="75.20001220703125" text="Password" />
-                  <TableColumn fx:id="tcEvent" minWidth="0.0" prefWidth="219.20000000000005" text="Event" />
+                <TableColumn fx:id="tcName" minWidth="7.20001220703125" prefWidth="220.00001525878906" text="Name" />
+                  <TableColumn fx:id="tcUsername" minWidth="0.0" prefWidth="74.39999389648438" text="Username" />
+                  <TableColumn fx:id="tcPassword" minWidth="0.0" prefWidth="124.0" text="Password" />
+                  <TableColumn fx:id="tcEvent" minWidth="0.0" prefWidth="182.4000244140625" text="Event" />
               </columns>
             </TableView>
             <Button layoutX="651.0" layoutY="182.0" mnemonicParsing="false" onAction="#onAddCoordinatorBtn" prefHeight="27.0" prefWidth="128.0" text="Add Coordinator" />
-            <Button layoutX="651.0" layoutY="81.0" mnemonicParsing="false" text="Remove Coordinator" />
+            <Button layoutX="651.0" layoutY="81.0" mnemonicParsing="false" onAction="#onRemoveCoordinatorBtn" text="Remove Coordinator" />
             <Button layoutX="651.0" layoutY="133.0" mnemonicParsing="false" text="Manage Coordinator" />
             <TextField layoutX="641.0" layoutY="28.0" />
          </children>

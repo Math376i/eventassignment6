@@ -30,7 +30,7 @@ public class CoordinatorDAO implements ICoordinator {
 
                 String password = rs.getString("password");
 
-                int id = rs.getInt("id");
+                int id = rs.getInt("Coordinatorid");
                 allCoordinators.add(new Coordinator(id, name, username, password));
             }
         } catch (SQLException throwables) {
@@ -77,7 +77,7 @@ public class CoordinatorDAO implements ICoordinator {
     @Override
     public boolean deleteCoordinator(Coordinator deleteCoordinator) {
         try {
-            String sqlStatement = "DELETE FROM Coordinator WHERE Id=?";
+            String sqlStatement = "DELETE FROM Coordinator WHERE CoordinatorId=?";
             PreparedStatement statement = con.prepareStatement(sqlStatement);
             statement.setInt(1, deleteCoordinator.getId());
             statement.execute();

@@ -11,9 +11,11 @@ import java.util.List;
 public class CoordinatorDAO implements ICoordinator {
 
     private Connection con;
+    public Coordinator currentCoordinator;
 
     public CoordinatorDAO(Connection connection) {
         con = connection;
+
     }
 
 
@@ -88,4 +90,20 @@ public class CoordinatorDAO implements ICoordinator {
         return false;
     }
 
+    public boolean getSpecificCoordinator(String username, String password) {
+
+        List<Coordinator> coordinators = new ArrayList<>();
+        coordinators = getCoordinators();
+        for (Coordinator coordinator : coordinators) {
+            if (coordinator.getUsername().equals(username) && coordinator.getPassword().equals(password)) {
+                currentCoordinator = coordinator;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Coordinator getCurrentCoordinator() {
+        return currentCoordinator;
+    }
 }

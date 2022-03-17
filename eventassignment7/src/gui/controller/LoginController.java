@@ -1,6 +1,8 @@
 package gui.controller;
 
+import gui.model.CoordinatorModel;
 import gui.util.SceneSwapper;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -14,10 +16,12 @@ import java.util.ResourceBundle;
 
 
 public class LoginController implements Initializable {
+    @FXML
+    private TextField lblUsername;
+    @FXML
+    private TextField lblPassword;
 
-    public TextField lblUsername;
-    public TextField lblPassword;
-
+    private CoordinatorModel coordinatorModel;
 
     public void onLoginBtn(ActionEvent actionEvent) throws IOException {
 
@@ -30,8 +34,7 @@ public class LoginController implements Initializable {
             stage.close();
         }
 
-        if(lblUsername.getText().toLowerCase(Locale.ROOT).equals("Coordinator") && lblPassword.getText().toLowerCase(Locale.ROOT).equals("Coordinator")){
-
+        if(coordinatorModel.getSpecificCoordinator(lblUsername.getText(), lblPassword.getText())){
             SceneSwapper sceneSwapper = new SceneSwapper();
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setResizable(false);
@@ -49,6 +52,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        coordinatorModel = new CoordinatorModel();
     }
 
 }

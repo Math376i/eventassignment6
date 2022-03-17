@@ -7,7 +7,7 @@
 
     -fx-border-style: hidden hidden solid hidden;
     -fx-border-radius: 0;
-    -fx-border-color: #ff0062;
+
 }
 
 .text-field:focused{
@@ -16,5 +16,17 @@
 
 .button{
     -fx-background-radius: 40;
-    -fx-background-color: #ff0062;
+}
+
+.backgrounding{
+    -fx-background-color: #03a9f4;
+}
+
+.whitebackground{
+    -fx-border-color: #0288d1;
+    -fx-background-color: white;
+    -fx-arc-width: 2;
+    -fx-border-style: solid;
+    
+
 }

@@ -1,20 +1,19 @@
 package bll;
 
-import be.Admin;
 import be.Coordinator;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-import dal.db.AdminDAO;
+import dal.db.CoordinatorDAO;
 import dal.db.DatabaseConnector;
 
 import java.io.IOException;
 
-public class AdminManager {
-private AdminDAO adminDAO;
+public class CoordinatorManager {
+private CoordinatorDAO adminDAO;
     private DatabaseConnector connector;
     {
         try {
             connector = new DatabaseConnector();
-            adminDAO = new AdminDAO(connector.getConnection());
+            adminDAO = new CoordinatorDAO(connector.getConnection());
         } catch (SQLServerException | IOException e) {
             e.printStackTrace();
         }
@@ -27,8 +26,7 @@ private AdminDAO adminDAO;
     }
      */
 
-    public Coordinator createCoordinator(Coordinator coordinator) {
-
-        return adminDAO.createCoordinator(coordinator.getId(), coordinator.getName(), coordinator.getUsername(), coordinator.getPassword());
+    public Coordinator createKoordinator(String name, String username, String password) {
+        return adminDAO.createCoordinator(name, username, password);
     }
 }

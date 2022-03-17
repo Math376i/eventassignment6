@@ -26,7 +26,8 @@ public class LoginController implements Initializable {
             SceneSwapper sceneSwapper = new SceneSwapper();
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setResizable(false);
-            sceneSwapper.sceneSwitch(stage, "AdminScreen.fxml");
+            sceneSwapper.sceneSwitch(new Stage(), "AdminScreen.fxml");
+            stage.close();
         }
 
         if(lblUsername.getText().toLowerCase(Locale.ROOT).equals("Coordinator") && lblPassword.getText().toLowerCase(Locale.ROOT).equals("Coordinator")){

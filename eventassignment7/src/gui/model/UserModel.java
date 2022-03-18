@@ -14,5 +14,7 @@ public class UserModel {
     public User createUser(String name, String email, int phoneNumber){
         return userManager.createUser(name, email, phoneNumber);
     }
-
+    public boolean deleteUser(User user){
+        return userManager.deleteUser(user);
+    }
 }

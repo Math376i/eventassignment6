@@ -1,6 +1,6 @@
 package dal.db;
 
-import be.Coordinator;
+
 import be.User;
 import dal.Interfaces.IUser;
 
@@ -43,10 +43,25 @@ public class UserDAO implements IUser {
     @Override
     public void updateUser(User user) throws Exception {
 
+        String sql = "UPDATE [User] SET name = ?, email=?, phoneNumber=?, WHERE userID=?;";
+        PreparedStatement preparedStatement = con.prepareStatement(sql);
+        preparedStatement.setString(1, user.getName());
+        preparedStatement.setString(2, user.getEmail());
+        preparedStatement.setInt(3, user.getPhoneNumber());
+        preparedStatement.executeUpdate();
     }
 
     @Override
     public boolean removeUser(User user) {
+        try {
+            String sqlStatement = "DELETE FROM [USER] WHERE userId=?";
+            PreparedStatement statement = con.prepareStatement(sqlStatement);
+            statement.setInt(1, user.getId());
+            statement.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }

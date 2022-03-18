@@ -5,12 +5,23 @@ public class User {
     private String name;
     private String email;
     private int phoneNumber;
+    private int eventID;
+    private String ticketName;
 
     public User(int id, String name, String email, int phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    public User(int id, String name, String email, int phoneNumber, int eventID, String ticketName) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.eventID = eventID;
+        this.ticketName = ticketName;
     }
 
     public String getName() {

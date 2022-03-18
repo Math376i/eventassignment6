@@ -4,25 +4,18 @@ import be.Coordinator;
 import be.Event;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
-import gui.model.UserModel;
 import gui.util.SceneSwapper;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.awt.event.MouseEvent;
 import java.io.*;
-import java.net.URL;
-import java.util.List;
+import java.net.URL;;
 import java.util.ResourceBundle;
 
 public class CoordinatorScreenController implements Initializable {
@@ -56,7 +49,6 @@ public class CoordinatorScreenController implements Initializable {
             e.printStackTrace();
         }
         fillTableView();
-
     }
 
     public Coordinator getCurrentCoordinator() throws IOException {
@@ -65,7 +57,6 @@ public class CoordinatorScreenController implements Initializable {
         BufferedReader br = new BufferedReader(fr);
 
         return currentCoordinator = coordinatorModel.getSpecificCoordinator(br.readLine(), br.readLine());
-
     }
 
     public void fillTableView(){
@@ -83,20 +74,21 @@ public class CoordinatorScreenController implements Initializable {
 
     public void onCreateGuest(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddUserScreen.fxml");
-
         CoordinatorAddUserController controller = new CoordinatorAddUserController();
         controller.setCurrentCoordinator(currentCoordinator);
     }
 
-
     public void onCreateEvent(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddEventScreen.fxml");
+    }
+
+    public void onManageGuest(ActionEvent actionEvent) {
+
 
     }
 
-    public void momo(ActionEvent actionEvent) {
+    public void onRemoveGuest(ActionEvent actionEvent) {
 
-        System.out.println(currentCoordinator.getName());
     }
 }
 

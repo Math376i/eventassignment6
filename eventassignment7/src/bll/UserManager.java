@@ -22,6 +22,8 @@ public class UserManager {
     public User createUser(String name, String email, int phoneNumber){
         return userDao.createUser(name, email, phoneNumber);
     }
-
+    public boolean deleteUser(User user){
+        return userDao.removeUser(user);
+    }
 
 }

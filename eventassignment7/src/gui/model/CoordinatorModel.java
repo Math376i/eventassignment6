@@ -27,6 +27,10 @@ public class CoordinatorModel {
         return coordinatorManager.getSpecificCoordinator(username,password);
     }
 
+
+    public Coordinator getCurrentCoordinator() {
+        return coordinatorManager.getCurrentCoordinator();
+    }
 /*
     public void updateKoordinator(Admin admin) throws Exception {
         AdminManager.updateKoordinator(admin);

@@ -29,7 +29,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" text="Create Event" />
+            <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateEvent" text="Create Event" />
             <Button layoutX="381.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateGuest" text="Create Geust" />
             <Button layoutX="138.0" layoutY="465.0" mnemonicParsing="false" text="Manage Event" />
             <TableView layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">

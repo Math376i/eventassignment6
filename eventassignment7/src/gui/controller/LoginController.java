@@ -1,5 +1,6 @@
 package gui.controller;
 
+import be.Coordinator;
 import gui.model.CoordinatorModel;
 import gui.util.SceneSwapper;
 import javafx.fxml.FXML;
@@ -39,6 +40,9 @@ public class LoginController implements Initializable {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setResizable(false);
             sceneSwapper.sceneSwitch(stage, "CoordinatorScreen.fxml");
+
+            CoordinatorScreenController controller = new CoordinatorScreenController();
+            controller.setCurrentCoordinator(coordinatorModel.getCurrentCoordinator());
         }
 
         if(lblUsername.getText().toLowerCase(Locale.ROOT).equals("User") && lblPassword.getText().toLowerCase(Locale.ROOT).equals("User")){
@@ -53,6 +57,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         coordinatorModel = new CoordinatorModel();
+
     }
 
 }

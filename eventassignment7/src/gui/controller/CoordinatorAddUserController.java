@@ -1,5 +1,6 @@
 package gui.controller;
 
+import be.Coordinator;
 import gui.model.UserModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ public class CoordinatorAddUserController implements Initializable {
     private TextField tfName;
 
     private UserModel userModel;
+    private Coordinator currentCoordinator;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,5 +42,9 @@ public class CoordinatorAddUserController implements Initializable {
     public void onClose(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    public void setCurrentCoordinator(Coordinator currentCoordinator) {
+        this.currentCoordinator = currentCoordinator;
     }
 }

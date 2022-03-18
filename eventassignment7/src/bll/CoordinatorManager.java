@@ -39,4 +39,8 @@ private CoordinatorDAO coordinatorDAO;
     public boolean getSpecificCoordinator(String username, String password){
         return coordinatorDAO.getSpecificCoordinator(username, password);
     }
+
+    public Coordinator getCurrentCoordinator() {
+        return coordinatorDAO.getCurrentCoordinator();
+    }
 }

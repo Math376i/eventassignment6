@@ -17,11 +17,11 @@
          <children>
             <Button layoutX="753.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="54.0" text="Back" />
             <Accordion layoutX="99.0" layoutY="121.0" />
-            <TableView layoutX="38.0" layoutY="63.0" prefHeight="389.0" prefWidth="299.0">
+            <TableView fx:id="tvEvents" layoutX="38.0" layoutY="63.0" prefHeight="389.0" prefWidth="299.0">
               <columns>
-                <TableColumn prefWidth="147.1999969482422" text="Event" />
-                  <TableColumn prefWidth="74.39996337890625" text="Date" />
-                  <TableColumn minWidth="0.0" prefWidth="79.20001220703125" text="Location" />
+                <TableColumn fx:id="tcEvent" prefWidth="147.1999969482422" text="Event" />
+                  <TableColumn fx:id="tcDate" prefWidth="74.39996337890625" text="Date" />
+                  <TableColumn fx:id="tcLocation" minWidth="0.0" prefWidth="79.20001220703125" text="Location" />
               </columns>
             </TableView>
             <Label layoutX="38.0" layoutY="27.0" text="This is Your Events">
@@ -32,7 +32,7 @@
             <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateEvent" text="Create Event" />
             <Button layoutX="381.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateGuest" text="Create Geust" />
             <Button layoutX="138.0" layoutY="465.0" mnemonicParsing="false" text="Manage Event" />
-            <TableView layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
+            <TableView fx:id="btnBack" layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
               <columns>
                 <TableColumn prefWidth="131.20001220703125" text="Name" />
                 <TableColumn prefWidth="89.5999755859375" text="Email" />
@@ -49,6 +49,7 @@
             <Button layoutX="710.0" layoutY="27.0" mnemonicParsing="false" text="Guest List" />
             <Button layoutX="243.0" layoutY="465.0" mnemonicParsing="false" text="Remove Event" />
             <Button layoutX="638.0" layoutY="465.0" mnemonicParsing="false" text="Remove Guest" />
+            <Button layoutX="264.0" layoutY="28.0" mnemonicParsing="false" onAction="#momo" text="Button" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="301.0" layoutY="27.0" styleClass="logo" AnchorPane.topAnchor="27.0">

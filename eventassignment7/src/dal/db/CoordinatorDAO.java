@@ -90,17 +90,16 @@ public class CoordinatorDAO implements ICoordinator {
         return false;
     }
 
-    public boolean getSpecificCoordinator(String username, String password) {
+    public Coordinator getSpecificCoordinator(String username, String password) {
 
         List<Coordinator> coordinators = new ArrayList<>();
         coordinators = getCoordinators();
         for (Coordinator coordinator : coordinators) {
             if (coordinator.getUsername().equals(username) && coordinator.getPassword().equals(password)) {
-                currentCoordinator = coordinator;
-                return true;
+                return coordinator;
             }
         }
-        return false;
+        return null;
     }
 
     public Coordinator getCurrentCoordinator() {

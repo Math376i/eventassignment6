@@ -8,6 +8,7 @@ import dal.db.EventDao;
 import dal.db.UserDAO;
 
 import java.io.IOException;
+import java.util.List;
 
 public class EventManager {
     private EventDao eventDao;
@@ -23,6 +24,10 @@ public class EventManager {
 
     public Event createEvent(String name, String adr, String startTime, Coordinator creator){
        return eventDao.createEvent(name,adr,startTime,creator);
+    }
+
+    public List<Event> getEventFromCoordinator(Coordinator coordinator){
+        return eventDao.getEventFromCoordinator(coordinator);
     }
 
 }

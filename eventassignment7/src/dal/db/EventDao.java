@@ -59,20 +59,24 @@ public class EventDao implements IEvent {
     public List<Event> getEventFromCoordinator(Coordinator coordinator) {
         List<Event> allEventsFromCoordinator = new ArrayList<>();
         try {
-            String sqlStatement = "SELECT * FROM [EventAssignment].[dbo].[Coordinator] Where ownerid = ? ";
-            PreparedStatement statement = con.prepareStatement(sqlStatement);
+            String sqlStatement = "SELECT eventID, eventName, address, startingTime, ownerid FROM Event INNER JOIN  Coordinator ON Coordinator.Coordinatorid = Event.ownerId  Where ownerid = ? ";
+            PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, coordinator.getId());
 
-            ResultSet rs = statement.executeQuery(sqlStatement);
+            statement.execute();
+
+            ResultSet rs = statement.getResultSet();
             while (rs.next()) {
-                String eventName = rs.getString("eventName");
+
+                int id = rs.getInt(1);
+                String eventName = rs.getString(2);
 
                 String address = rs.getString("address");
 
-                String startTime = rs.getString("startTime");
+                String startTime = rs.getString("startingTime");
 
                 int ownerId = rs.getInt("ownerID");
-                int id = rs.getInt("EventId");
+
                 allEventsFromCoordinator.add(new Event(id, eventName, address, startTime, ownerId));
             }
         } catch (SQLException throwables) {

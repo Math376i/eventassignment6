@@ -23,7 +23,7 @@ public class CoordinatorModel {
         return coordinatorManager.deleteCoordinator(coordinator);
     }
 
-    public boolean getSpecificCoordinator(String username, String password) {
+    public Coordinator getSpecificCoordinator(String username, String password) {
         return coordinatorManager.getSpecificCoordinator(username,password);
     }
 

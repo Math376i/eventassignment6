@@ -32,12 +32,12 @@
             <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateEvent" text="Create Event" />
             <Button layoutX="381.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateGuest" text="Create Geust" />
             <Button layoutX="138.0" layoutY="465.0" mnemonicParsing="false" text="Manage Event" />
-            <TableView fx:id="btnBack" layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
+            <TableView fx:id="tvGuest" layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
               <columns>
-                <TableColumn prefWidth="131.20001220703125" text="Name" />
-                <TableColumn prefWidth="89.5999755859375" text="Email" />
-                  <TableColumn prefWidth="74.39996337890625" text="Number" />
-                  <TableColumn prefWidth="104.7999267578125" text="Ticket Name" />
+                <TableColumn fx:id="tcUserName" prefWidth="131.20001220703125" text="Name" />
+                <TableColumn fx:id="tcEmail" prefWidth="89.5999755859375" text="Email" />
+                  <TableColumn fx:id="tcNumber" prefWidth="74.39996337890625" text="Number" />
+                  <TableColumn fx:id="tcTicketName" prefWidth="104.7999267578125" text="Ticket Name" />
               </columns>
             </TableView>
             <Label layoutX="381.0" layoutY="27.0" text="Guest for your event">

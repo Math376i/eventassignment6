@@ -2,8 +2,10 @@ package gui.controller;
 
 import be.Coordinator;
 import be.Event;
+import be.User;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
+import gui.model.UserModel;
 import gui.util.SceneSwapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +24,19 @@ public class CoordinatorScreenController implements Initializable {
 
 
     @FXML
+    private TableView<User> tvGuest;
+    @FXML
+    private TableColumn<User, String> tcUserName;
+    @FXML
+    private TableColumn< User, String> tcEmail;
+    @FXML
+    private TableColumn<User, String > tcNumber;
+    @FXML
+    private TableColumn<User, String> tcTicketName;
+
+
+    // for event table view
+    @FXML
     private TableColumn<Event, String> tcEvent;
     @FXML
     private TableColumn<Event, String> tcDate;
@@ -31,18 +46,22 @@ public class CoordinatorScreenController implements Initializable {
     private TableView<Event> tvEvents;
 
     private CoordinatorModel coordinatorModel;
+    private UserModel userModel;
     private Coordinator currentCoordinator;
     private SceneSwapper sceneSwapper;
     private EventModel eventModel;
     private ObservableList<Event> allEventsFromCoordinator;
+    private ObservableList<User> allUsersFromEvents;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        allUsersFromEvents = FXCollections.observableArrayList();
         allEventsFromCoordinator = FXCollections.observableArrayList();
         sceneSwapper = new SceneSwapper();
         coordinatorModel = new CoordinatorModel();
         eventModel = new EventModel();
+        userModel = new UserModel();
         try {
             getCurrentCoordinator();
         } catch (IOException e) {
@@ -64,7 +83,21 @@ public class CoordinatorScreenController implements Initializable {
         tcDate.setCellValueFactory(new PropertyValueFactory<Event,String>("address"));
         tcLocation.setCellValueFactory(new PropertyValueFactory<Event,String>("startTime"));
         tvEvents.setItems(getEventFromCoordinator());
+
+        tcUserName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+        tcEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+        tcNumber.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
+        tcTicketName.setCellValueFactory(new PropertyValueFactory<User, String>("ticketName"));
+
+
+        for (Event event : getEventFromCoordinator()){
+             allUsersFromEvents.addAll(userModel.getUsersFromEvent(event));
+        }
+        tvGuest.setItems(allUsersFromEvents);
+
+
     }
+
 
     public ObservableList<Event> getEventFromCoordinator(){
        allEventsFromCoordinator.clear();
@@ -74,8 +107,6 @@ public class CoordinatorScreenController implements Initializable {
 
     public void onCreateGuest(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddUserScreen.fxml");
-        CoordinatorAddUserController controller = new CoordinatorAddUserController();
-        controller.setCurrentCoordinator(currentCoordinator);
     }
 
     public void onCreateEvent(ActionEvent actionEvent) throws IOException {

@@ -1,8 +1,5 @@
 package gui.controller;
 
-import be.Coordinator;
-import com.sun.tools.javac.Main;
-import gui.App;
 import gui.model.CoordinatorModel;
 import gui.util.SceneSwapper;
 import javafx.fxml.FXML;
@@ -11,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
 import java.io.*;
 import java.net.URL;
 import java.util.Locale;
@@ -29,6 +25,10 @@ public class LoginController implements Initializable {
 
     private CoordinatorModel coordinatorModel;
 
+
+    /**
+     *
+     */
     public void onLoginBtn(ActionEvent actionEvent) throws IOException {
 
         if (lblUsername.getText().toLowerCase(Locale.ROOT).equals("admin") && lblPassword.getText().toLowerCase(Locale.ROOT).equals("admin")) {

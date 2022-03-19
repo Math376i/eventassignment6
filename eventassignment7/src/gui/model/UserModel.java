@@ -1,7 +1,10 @@
 package gui.model;
 
+import be.Event;
 import be.User;
 import bll.UserManager;
+
+import java.util.List;
 
 public class UserModel {
 
@@ -11,10 +14,15 @@ public class UserModel {
         userManager = new UserManager();
     }
 
-    public User createUser(String name, String email, int phoneNumber){
-        return userManager.createUser(name, email, phoneNumber);
+    public User createUser(String name, String email, int phoneNumber, int userEventID){
+        return userManager.createUser(name, email, phoneNumber, userEventID);
     }
     public boolean deleteUser(User user){
         return userManager.deleteUser(user);
     }
+
+    public List<User> getUsersFromEvent(Event event){
+        return userManager.getUsersFromEvent(event);
+    }
+
 }

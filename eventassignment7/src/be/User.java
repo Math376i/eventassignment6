@@ -6,22 +6,14 @@ public class User {
     private String email;
     private int phoneNumber;
     private int eventID;
-    private String ticketName;
 
-    public User(int id, String name, String email, int phoneNumber) {
+    public User(int id, String userName, String email, int phoneNumber, int userEventId) {
         this.id = id;
-        this.name = name;
+        this.name = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-    }
+        this.eventID = userEventId;
 
-    public User(int id, String name, String email, int phoneNumber, int eventID, String ticketName) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.eventID = eventID;
-        this.ticketName = ticketName;
     }
 
     public String getName() {
@@ -50,5 +42,9 @@ public class User {
 
     public int getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public int getEventID() {
+        return eventID;
     }
 }

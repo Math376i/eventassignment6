@@ -14,7 +14,6 @@ import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -44,6 +43,9 @@ public class CoordinatorAddUserController implements Initializable {
         eventModel = new EventModel();
         coordinatorModel = new CoordinatorModel();
         allEventsFromCoordinator = FXCollections.observableArrayList();
+
+
+        // tries to get the user logged in
         try {
             getCurrentCoordinator();
         } catch (IOException e) {
@@ -51,11 +53,16 @@ public class CoordinatorAddUserController implements Initializable {
         }
         getEventFromCoordinator();
 
+        // adds all events coordinators is part off for registration
         for (Event event: allEventsFromCoordinator){
             comboboxEvents.getItems().add(event.getName());
         }
     }
 
+    /**
+     *  Finds the Coordinator that is signed in.
+     * @return the coordinator thats logged in
+     */
     public Coordinator getCurrentCoordinator() throws IOException {
         File file = new File("DATA/Coordinator");
         FileReader fr = new FileReader(file);
@@ -63,7 +70,12 @@ public class CoordinatorAddUserController implements Initializable {
 
         return currentCoordinator = coordinatorModel.getSpecificCoordinator(br.readLine(), br.readLine());
     }
-    
+
+
+    /**
+     *  Get all Events one Coordinator
+     * @return list of Events
+     */
     public ObservableList<Event> getEventFromCoordinator(){
         allEventsFromCoordinator.clear();
         allEventsFromCoordinator.addAll(eventModel.getEventFromCoordinator(currentCoordinator));
@@ -71,24 +83,26 @@ public class CoordinatorAddUserController implements Initializable {
     }
 
 
+    /**
+     * add a user/Guest
+     */
     public void onAddUser(ActionEvent actionEvent) {
         try {
-            if (comboboxEvents.getSelectionModel().isEmpty()){
-                userModel.createUser(tfName.getText(),tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()));
-            }else{
-
                 for (Event event: allEventsFromCoordinator){
                     if (event.getName().equals(comboboxEvents.getSelectionModel().getSelectedItem())){
-                        userModel.createUser(tfName.getText(),tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText(), event.getId()));
+                        userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), event.getId());
                     }
                 }
-            }
+
 
         }catch (Exception exp){
-            exp.fillInStackTrace();
+            exp.printStackTrace();
         }
     }
 
+    /**
+     * Closes the stage
+     */
     public void onClose(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();

@@ -13,6 +13,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -94,14 +96,13 @@ public class CoordinatorScreenController implements Initializable {
         tcNumber.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
         tcTicketName.setCellValueFactory(new PropertyValueFactory<User, String>("ticketName"));
 
+        allUsersFromEvents.clear();
+
         for (Event event : getEventFromCoordinator()){
              allUsersFromEvents.addAll(userModel.getUsersFromEvent(event));
         }
         tvGuest.setItems(allUsersFromEvents);
-
-
     }
-
 
     public ObservableList<Event> getEventFromCoordinator(){
        allEventsFromCoordinator.clear();
@@ -124,6 +125,14 @@ public class CoordinatorScreenController implements Initializable {
 
     public void onRemoveGuest(ActionEvent actionEvent) {
 
+    }
+
+    public void onRemoveEventBtn(ActionEvent actionEvent) {
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Event");
+        a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
+            eventModel.removeEvent(tvEvents.getSelectionModel().getSelectedItem());
+        });
+        fillTableView();
     }
 }
 

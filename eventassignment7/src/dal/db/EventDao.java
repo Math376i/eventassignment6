@@ -53,7 +53,16 @@ public class EventDao implements IEvent {
     }
 
     @Override
-    public boolean removeEvent(User user) {
+    public boolean removeEvent(Event event) {
+        try {
+            String sqlStatement = "DELETE FROM Event WHERE EventID=?";
+            PreparedStatement statement = con.prepareStatement(sqlStatement);
+            statement.setInt(1, event.getId());
+            statement.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 

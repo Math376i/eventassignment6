@@ -47,7 +47,7 @@
             </Label>
             <Button layoutX="505.0" layoutY="465.0" mnemonicParsing="false" onAction="#onManageGuest" text="Manage Guest" />
             <Button layoutX="710.0" layoutY="27.0" mnemonicParsing="false" text="Guest List" />
-            <Button layoutX="243.0" layoutY="465.0" mnemonicParsing="false" text="Remove Event" />
+            <Button layoutX="243.0" layoutY="465.0" mnemonicParsing="false" onAction="#onRemoveEventBtn" text="Remove Event" />
             <Button layoutX="638.0" layoutY="465.0" mnemonicParsing="false" onAction="#onRemoveGuest" text="Remove Guest" />
          </children>
       </AnchorPane>

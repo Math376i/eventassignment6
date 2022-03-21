@@ -2,6 +2,7 @@ package bll;
 
 import be.Coordinator;
 import be.Event;
+import be.User;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 import dal.db.EventDao;
@@ -29,6 +30,9 @@ public class EventManager {
 
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){
         return eventDao.getEventFromCoordinator(coordinator);
+    }
+    public Boolean removeEvent(Event event){
+        return eventDao.removeEvent(event);
     }
 
 }

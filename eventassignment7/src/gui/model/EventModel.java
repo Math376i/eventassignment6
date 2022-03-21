@@ -21,4 +21,7 @@ public class EventModel {
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){
         return eventManager.getEventFromCoordinator(coordinator);
     }
+    public Boolean removeEvent(Event event){
+        return eventManager.removeEvent(event);
+    }
 }

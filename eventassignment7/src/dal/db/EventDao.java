@@ -4,6 +4,8 @@ import be.Coordinator;
 import be.Event;
 import be.User;
 import dal.Interfaces.IEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -56,8 +58,8 @@ public class EventDao implements IEvent {
     }
 
     @Override
-    public List<Event> getEventFromCoordinator(Coordinator coordinator) {
-        List<Event> allEventsFromCoordinator = new ArrayList<>();
+    public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator) {
+        ObservableList<Event> allEventsFromCoordinator = FXCollections.observableArrayList();
         try {
             String sqlStatement = "SELECT eventID, eventName, address, startingTime, ownerid FROM Event INNER JOIN  Coordinator ON Coordinator.Coordinatorid = Event.ownerId  Where ownerid = ? ";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);

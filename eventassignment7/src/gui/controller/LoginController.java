@@ -42,10 +42,17 @@ public class LoginController implements Initializable {
 
         if(coordinatorModel.getSpecificCoordinator(lblUsername.getText(), lblPassword.getText()) != null){
             saveCoordinator(lblUsername.getText(),lblPassword.getText());
+
             SceneSwapper sceneSwapper = new SceneSwapper();
+            sceneSwapper.coordinatorMainScreen(new Stage());
+
+            /*
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setResizable(false);
             sceneSwapper.sceneSwitch(stage, "CoordinatorScreen.fxml");
+             */
+
+
 
         }
 

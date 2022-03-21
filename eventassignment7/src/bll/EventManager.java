@@ -6,6 +6,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dal.db.DatabaseConnector;
 import dal.db.EventDao;
 import dal.db.UserDAO;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +27,7 @@ public class EventManager {
        return eventDao.createEvent(name,adr,startTime,creator);
     }
 
-    public List<Event> getEventFromCoordinator(Coordinator coordinator){
+    public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){
         return eventDao.getEventFromCoordinator(coordinator);
     }
 

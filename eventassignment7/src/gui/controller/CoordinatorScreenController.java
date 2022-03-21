@@ -8,6 +8,7 @@ import gui.model.EventModel;
 import gui.model.UserModel;
 import gui.util.SceneSwapper;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,7 +69,11 @@ public class CoordinatorScreenController implements Initializable {
             e.printStackTrace();
         }
         fillTableView();
+
+        eventModel.getEventFromCoordinator(currentCoordinator).addListener((ListChangeListener) change -> fillTableView());
+
     }
+
 
     public Coordinator getCurrentCoordinator() throws IOException {
         File file = new File("DATA/Coordinator");
@@ -79,16 +84,15 @@ public class CoordinatorScreenController implements Initializable {
     }
 
     public void fillTableView(){
-        tcEvent.setCellValueFactory(new PropertyValueFactory<Event,String>("name"));
-        tcDate.setCellValueFactory(new PropertyValueFactory<Event,String>("address"));
-        tcLocation.setCellValueFactory(new PropertyValueFactory<Event,String>("startTime"));
+        tcEvent.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        tcDate.setCellValueFactory(cellData -> cellData.getValue().startTimeProperty());
+        tcLocation.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
         tvEvents.setItems(getEventFromCoordinator());
 
         tcUserName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
         tcNumber.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
         tcTicketName.setCellValueFactory(new PropertyValueFactory<User, String>("ticketName"));
-
 
         for (Event event : getEventFromCoordinator()){
              allUsersFromEvents.addAll(userModel.getUsersFromEvent(event));

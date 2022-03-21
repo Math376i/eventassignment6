@@ -3,8 +3,10 @@ package gui.controller;
 import be.Coordinator;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
+import gui.util.SceneSwapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -44,8 +46,13 @@ public class CoordinatorAddEventController implements Initializable {
     public void onAddEvent(ActionEvent actionEvent) {
         try {
             eventModel.createEvent(tfEventName.getText(), tfAddress.getText(), tfStartTime.getText(), currentCoordinator);
+
+            CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
+            controller.fillTableView();
+
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();
+
 
         }catch (Exception ex){
             ex.printStackTrace();

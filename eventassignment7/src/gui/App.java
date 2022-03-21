@@ -24,9 +24,4 @@ public class App extends Application {
         primaryStage.setTitle("Event Manager");
         primaryStage.show();
     }
-
-
-    public CoordinatorScreenController getController() {
-        return fxmlLoaderMain.getController();
-    }
 }

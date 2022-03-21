@@ -124,7 +124,11 @@ public class CoordinatorScreenController implements Initializable {
     }
 
     public void onRemoveGuest(ActionEvent actionEvent) {
-
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Event");
+        a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
+            userModel.deleteUser(tvGuest.getSelectionModel().getSelectedItem());
+        });
+        fillTableView();
     }
 
     public void onRemoveEventBtn(ActionEvent actionEvent) {

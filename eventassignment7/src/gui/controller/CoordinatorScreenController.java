@@ -120,7 +120,6 @@ public class CoordinatorScreenController implements Initializable {
 
     public void onManageGuest(ActionEvent actionEvent) {
 
-
     }
 
     public void onRemoveGuest(ActionEvent actionEvent) {

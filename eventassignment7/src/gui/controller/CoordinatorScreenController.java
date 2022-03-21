@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -136,6 +137,14 @@ public class CoordinatorScreenController implements Initializable {
             eventModel.removeEvent(tvEvents.getSelectionModel().getSelectedItem());
         });
         fillTableView();
+    }
+
+    public void OnLogoutBtn(ActionEvent actionEvent) throws IOException {
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            SceneSwapper sceneSwapper = new SceneSwapper();
+            sceneSwapper.sceneSwitch(new Stage(), "Login.fxml");
+            stage.close();
+
     }
 }
 

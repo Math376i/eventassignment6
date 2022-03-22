@@ -78,6 +78,9 @@ public class CoordinatorScreenController implements Initializable {
     }
 
 
+    /**
+     * gets a coordinator that is logged in in the system
+     */
     public Coordinator getCurrentCoordinator() throws IOException {
         File file = new File("DATA/Coordinator");
         FileReader fr = new FileReader(file);
@@ -86,6 +89,9 @@ public class CoordinatorScreenController implements Initializable {
         return currentCoordinator = coordinatorModel.getSpecificCoordinator(br.readLine(), br.readLine());
     }
 
+    /**
+     * fills the tableviews with data
+     */
     public void fillTableView(){
         tcEvent.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         tcDate.setCellValueFactory(cellData -> cellData.getValue().startTimeProperty());
@@ -105,24 +111,41 @@ public class CoordinatorScreenController implements Initializable {
         tvGuest.setItems(allUsersFromEvents);
     }
 
+
+    /**
+     * gets all events from one coordinator
+     */
     public ObservableList<Event> getEventFromCoordinator(){
        allEventsFromCoordinator.clear();
         allEventsFromCoordinator.addAll(eventModel.getEventFromCoordinator(currentCoordinator));
         return allEventsFromCoordinator;
     }
 
+
+    /**
+     * creates a guest for the program and database
+     */
     public void onCreateGuest(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddUserScreen.fxml");
     }
 
+    /**
+     * creates an event for the program and database
+     */
     public void onCreateEvent(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddEventScreen.fxml");
     }
 
+    /**
+     * /TODO so you can change in guest information
+     */
     public void onManageGuest(ActionEvent actionEvent) {
 
     }
 
+    /**
+     * removes a guest/user from the program and database
+     */
     public void onRemoveGuest(ActionEvent actionEvent) {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Event");
         a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
@@ -131,6 +154,9 @@ public class CoordinatorScreenController implements Initializable {
         fillTableView();
     }
 
+    /**
+     * removes an event from the program and database
+     */
     public void onRemoveEventBtn(ActionEvent actionEvent) {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Event");
         a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
@@ -139,6 +165,9 @@ public class CoordinatorScreenController implements Initializable {
         fillTableView();
     }
 
+    /**
+     * closes the screen and returns back to the login screen
+     */
     public void OnLogoutBtn(ActionEvent actionEvent) throws IOException {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             SceneSwapper sceneSwapper = new SceneSwapper();

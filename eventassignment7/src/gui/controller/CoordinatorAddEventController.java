@@ -1,5 +1,4 @@
 package gui.controller;
-
 import be.Coordinator;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
@@ -41,6 +40,9 @@ public class CoordinatorAddEventController implements Initializable {
         }
     }
 
+    /**
+     *  adds an event to the program and database
+     */
     public void onAddEvent(ActionEvent actionEvent) {
         try {
             eventModel.createEvent(tfEventName.getText(), tfAddress.getText(), tfStartTime.getText(), currentCoordinator);
@@ -57,6 +59,10 @@ public class CoordinatorAddEventController implements Initializable {
         }
     }
 
+    /**
+     * gets the coordinator that is currently logged in.
+     * @return a coordinator object
+     */
     public Coordinator getCurrentCoordinator() throws IOException {
         File file = new File("DATA/Coordinator");
         FileReader fr = new FileReader(file);

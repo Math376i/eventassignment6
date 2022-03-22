@@ -25,6 +25,10 @@ public class AdminAddEventManagerController implements Initializable {
         coordinatorModel = new CoordinatorModel();
     }
 
+
+    /**
+     * add a coordinator.
+     */
     public void onAddCoordinator(ActionEvent actionEvent) {
 
         try {

@@ -96,6 +96,9 @@ public class AdminScreenController implements Initializable {
         fillTableVew();
     }
 
+    /**
+     * closes the screen and return back to the login screen
+     */
     public void onLogoutBtn(ActionEvent actionEvent) throws IOException {
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

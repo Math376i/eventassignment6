@@ -12,7 +12,7 @@
             <Image url="@../img/party.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="51.0" layoutY="36.0" promptText="EventName" />
-      <TextField layoutX="52.0" layoutY="80.0" promptText="Address" />
+      <TextField fx:id="TxEventName" layoutX="51.0" layoutY="36.0" promptText="EventName" />
+      <TextField fx:id="fxAddress" layoutX="52.0" layoutY="80.0" promptText="Address" />
    </children>
 </AnchorPane>

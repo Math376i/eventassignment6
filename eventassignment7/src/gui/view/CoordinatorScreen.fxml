@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
+<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
    <children>
       <AnchorPane layoutX="257.0" layoutY="27.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="45.0" layoutY="114.0" prefHeight="515.0" prefWidth="822.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
@@ -60,7 +60,7 @@
                 <TableColumn prefWidth="75.0" text="Event" />
               </columns>
             </TableView>
-            <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" text="Create Ticket" />
+            <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateTicket" text="Create Ticket" />
             <Button layoutX="242.0" layoutY="465.0" mnemonicParsing="false" text="Remove Ticket" />
             <Button layoutX="137.0" layoutY="465.0" mnemonicParsing="false" text="Change Ticket" />
          </children>

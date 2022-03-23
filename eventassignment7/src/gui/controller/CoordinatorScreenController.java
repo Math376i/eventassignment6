@@ -175,5 +175,10 @@ public class CoordinatorScreenController implements Initializable {
             stage.close();
 
     }
+
+    public void onCreateTicket(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddTicketScreen.fxml");
+
+    }
 }
 

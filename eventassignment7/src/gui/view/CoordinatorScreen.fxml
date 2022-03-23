@@ -61,7 +61,7 @@
               </columns>
             </TableView>
             <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateTicket" text="Create Ticket" />
-            <Button layoutX="242.0" layoutY="465.0" mnemonicParsing="false" text="Remove Ticket" />
+            <Button layoutX="242.0" layoutY="465.0" mnemonicParsing="false" onAction="#OnRemoveTicket" text="Remove Ticket" />
             <Button layoutX="137.0" layoutY="465.0" mnemonicParsing="false" text="Change Ticket" />
          </children>
       </AnchorPane>

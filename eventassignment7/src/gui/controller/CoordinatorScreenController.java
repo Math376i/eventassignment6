@@ -180,5 +180,13 @@ public class CoordinatorScreenController implements Initializable {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddTicketScreen.fxml");
 
     }
+
+    public void OnRemoveTicket(ActionEvent actionEvent) {
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Ticket");
+        a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
+            userModel.deleteUser(tvGuest.getSelectionModel().getSelectedItem());
+        });
+        fillTableView();
+    }
 }
 

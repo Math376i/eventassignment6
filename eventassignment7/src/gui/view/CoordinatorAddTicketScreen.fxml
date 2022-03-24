@@ -15,9 +15,10 @@
          <children>
             <Label layoutX="22.0" layoutY="41.0" text="EventName" />
             <Label layoutX="23.0" layoutY="82.0" text="Address" />
-            <Button layoutX="205.0" layoutY="106.0" mnemonicParsing="false" onAction="#OnCreateTicket" text="Create Ticket" />
+            <Button layoutX="114.0" layoutY="106.0" mnemonicParsing="false" onAction="#OnCreateTicket" text="Create Ticket" />
             <TextField fx:id="lblEventName" layoutX="133.0" layoutY="28.0" promptText="EventName" />
             <PasswordField fx:id="lblAddress" layoutX="133.0" layoutY="71.0" promptText="Address" />
+            <Button layoutX="230.0" layoutY="106.0" mnemonicParsing="false" onAction="#onClose" text="Close" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="100.0" layoutY="28.0" styleClass="logo" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="28.0">

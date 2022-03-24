@@ -12,7 +12,6 @@ TicketDAO ticketDAO = new TicketDAO();
     }
 
     public void createTicket(String eventName, String address) {
-        System.out.println(Ticket.geteventName());
         return TicketDAO.createTicket(String eventName, String address);
     }
 

@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
         }
 
         // checks for user login
-        if(lblUsername.getText().toLowerCase(Locale.ROOT).equals("User") && lblPassword.getText().toLowerCase(Locale.ROOT).equals("User")){
+        if(lblUsername.getText().toLowerCase(Locale.ROOT).equals("user") && lblPassword.getText().toLowerCase(Locale.ROOT).equals("user")){
 
             SceneSwapper sceneSwapper = new SceneSwapper();
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

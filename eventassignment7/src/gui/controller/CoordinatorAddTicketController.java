@@ -12,7 +12,6 @@ public class CoordinatorAddTicketController {
     public PasswordField lblAddress;
 
     public void OnCreateTicket(ActionEvent actionEvent) {
-
     }
 
 

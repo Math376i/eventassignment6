@@ -1,24 +1,29 @@
 package be;
 
 public class Ticket {
-    private String EventName;
-    private String Address;
+    private String eventName;
+    private String address;
 
+    public Ticket( String eventName , String address){
+        this.eventName = eventName;
+        this.address = address;
+        
+    }
 
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public String getEventName() {
-        return EventName;
+        return eventName;
     }
 
     public void setEventName(String eventName) {
-        EventName = eventName;
+        eventName = eventName;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        address = address;
     }
 }

@@ -21,19 +21,38 @@ public class UserDAO implements IUser {
 
     @Override
     public List<User> getUsers() {
-        return null;
+        List<User> allUser = new ArrayList<>();
+        try {
+            String sqlStatement = "SELECT * FROM [EventAssignment].[dbo].[User]";
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sqlStatement);
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                int phoneNumber = rs.getInt("phoneNumber");
+                int userEventID = rs.getInt("userEventID");
+
+                int id = rs.getInt("UserID");
+                allUser.add(new User(id, name, email, phoneNumber,userEventID ));
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return allUser;
     }
 
     @Override
-    public User createUser(String name, String email, int phoneNumber, int userEventID) {
+    public User createUser(String name, String email, int phoneNumber, Integer userEventID) {
         int insertedId = -1;
+        if (userEventID.equals(-1)){userEventID = null;}
         try {
             String sqlStatement = "INSERT INTO [User](name,email,phoneNumber, userEventID) VALUES (?, ?, ?, ?);";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, name);
             statement.setString(2, email);
             statement.setInt(3, phoneNumber);
-            statement.setInt(4,userEventID);
+            if(userEventID!= null){statement.setInt(4,userEventID);}
+            else {statement.setNull(4,Types.INTEGER); userEventID = -1;}
             statement.execute();
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();

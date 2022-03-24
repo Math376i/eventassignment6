@@ -21,6 +21,10 @@ public class UserManager {
         }
     }
 
+    public List<User> getAllUsers(){
+        return userDao.getUsers();
+    }
+
     public User createUser(String name, String email, int phoneNumber, int userEventID){
         return userDao.createUser(name, email, phoneNumber,userEventID);
     }

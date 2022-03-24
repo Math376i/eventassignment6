@@ -5,6 +5,7 @@ import be.Event;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
 import gui.model.UserModel;
+import gui.util.SceneSwapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -88,12 +89,20 @@ public class CoordinatorAddUserController implements Initializable {
      */
     public void onAddUser(ActionEvent actionEvent) {
         try {
+            if (comboboxEvents.getSelectionModel().isEmpty()){
+                userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), -1);
+            }
                 for (Event event: allEventsFromCoordinator){
                     if (event.getName().equals(comboboxEvents.getSelectionModel().getSelectedItem())){
                         userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), event.getId());
                     }
                 }
+                tfName.setText("");
+                tfEmail.setText("");
+                tfPhoneNumber.setText("");
 
+            CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
+            controller.setTableviewForUser();
 
         }catch (Exception exp){
             exp.printStackTrace();
@@ -104,6 +113,9 @@ public class CoordinatorAddUserController implements Initializable {
      * Closes the stage
      */
     public void onClose(ActionEvent actionEvent) {
+        CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
+        controller.prepareTableview();
+
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }

@@ -45,6 +45,9 @@ public class LoginController implements Initializable {
             SceneSwapper sceneSwapper = new SceneSwapper();
             sceneSwapper.coordinatorMainScreen(new Stage());
 
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.close();
+
         }
 
         // checks for user login

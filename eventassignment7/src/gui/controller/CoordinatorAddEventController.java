@@ -48,7 +48,7 @@ public class CoordinatorAddEventController implements Initializable {
             eventModel.createEvent(tfEventName.getText(), tfAddress.getText(), tfStartTime.getText(), currentCoordinator);
 
             CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
-            controller.fillTableView();
+            controller.prepareTableview();
 
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();

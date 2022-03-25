@@ -14,7 +14,12 @@ public class UserModel {
         userManager = new UserManager();
     }
 
-    public User createUser(String name, String email, int phoneNumber, int userEventID){
+
+    public List<User> getAllUsers(){
+        return userManager.getAllUsers();
+    }
+
+    public User createUser(String name, String email, Integer phoneNumber, Integer userEventID){
         return userManager.createUser(name, email, phoneNumber, userEventID);
     }
     public boolean deleteUser(User user){

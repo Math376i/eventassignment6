@@ -19,9 +19,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
 import java.io.*;
 import java.net.URL;;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CoordinatorScreenController implements Initializable {
@@ -32,9 +35,9 @@ public class CoordinatorScreenController implements Initializable {
     @FXML
     private TableColumn<User, String> tcUserName;
     @FXML
-    private TableColumn< User, String> tcEmail;
+    private TableColumn<User, String> tcEmail;
     @FXML
-    private TableColumn<User, String > tcNumber;
+    private TableColumn<User, String> tcNumber;
     @FXML
     private TableColumn<User, String> tcTicketName;
 
@@ -55,25 +58,27 @@ public class CoordinatorScreenController implements Initializable {
     private SceneSwapper sceneSwapper;
     private EventModel eventModel;
     private ObservableList<Event> allEventsFromCoordinator;
-    private ObservableList<User> allUsersFromEvents;
+    private ObservableList<User> userList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        allUsersFromEvents = FXCollections.observableArrayList();
+        userList = FXCollections.observableArrayList();
         allEventsFromCoordinator = FXCollections.observableArrayList();
         sceneSwapper = new SceneSwapper();
         coordinatorModel = new CoordinatorModel();
         eventModel = new EventModel();
         userModel = new UserModel();
+
         try {
             getCurrentCoordinator();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        fillTableView();
+        prepareTableview();
 
-        eventModel.getEventFromCoordinator(currentCoordinator).addListener((ListChangeListener) change -> fillTableView());
+
+        eventModel.getEventFromCoordinator(currentCoordinator).addListener((ListChangeListener) change -> prepareTableview());
 
     }
 
@@ -92,31 +97,56 @@ public class CoordinatorScreenController implements Initializable {
     /**
      * fills the tableviews with data
      */
-    public void fillTableView(){
+    public void prepareTableview() {
+        // setup for the tableview event
         tcEvent.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         tcDate.setCellValueFactory(cellData -> cellData.getValue().startTimeProperty());
         tcLocation.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
-        tvEvents.setItems(getEventFromCoordinator());
 
+        // setup for the tableview users
         tcUserName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
         tcNumber.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
         tcTicketName.setCellValueFactory(new PropertyValueFactory<User, String>("ticketName"));
 
-        allUsersFromEvents.clear();
+        setTableviewForUser();
+        setTableviewForEvents();
+    }
 
-        for (Event event : getEventFromCoordinator()){
-             allUsersFromEvents.addAll(userModel.getUsersFromEvent(event));
-        }
-        tvGuest.setItems(allUsersFromEvents);
+    public void setTableviewForEvents(){
+        tvEvents.setItems(getEventFromCoordinator());
+    }
+
+    public void setTableviewForUser(){
+
+            // Clear the list
+            userList.clear();
+            //checks if there is an event selected
+            if (tvEvents.getSelectionModel().isEmpty()) {
+                userList.addAll(getAllUsers()); //add all users if no event selected
+            } else {
+                //adds all users signed on that event
+                userList.addAll(userModel.getUsersFromEvent(tvEvents.getSelectionModel().getSelectedItem()));
+            }
+            // sets the users on the tableview
+            tvGuest.setItems(userList);
+    }
+
+
+
+    /**
+     * @return list of all users
+     */
+    public List<User> getAllUsers() {
+        return userModel.getAllUsers();
     }
 
 
     /**
      * gets all events from one coordinator
      */
-    public ObservableList<Event> getEventFromCoordinator(){
-       allEventsFromCoordinator.clear();
+    public ObservableList<Event> getEventFromCoordinator() {
+        allEventsFromCoordinator.clear();
         allEventsFromCoordinator.addAll(eventModel.getEventFromCoordinator(currentCoordinator));
         return allEventsFromCoordinator;
     }
@@ -151,7 +181,7 @@ public class CoordinatorScreenController implements Initializable {
         a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
             userModel.deleteUser(tvGuest.getSelectionModel().getSelectedItem());
         });
-        fillTableView();
+        prepareTableview();
     }
 
     /**
@@ -162,17 +192,19 @@ public class CoordinatorScreenController implements Initializable {
         a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
             eventModel.removeEvent(tvEvents.getSelectionModel().getSelectedItem());
         });
-        fillTableView();
+        prepareTableview();
+        setTableviewForUser();
+        setTableviewForEvents();
     }
 
     /**
      * closes the screen and returns back to the login screen
      */
     public void OnLogoutBtn(ActionEvent actionEvent) throws IOException {
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            SceneSwapper sceneSwapper = new SceneSwapper();
-            sceneSwapper.sceneSwitch(new Stage(), "Login.fxml");
-            stage.close();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        SceneSwapper sceneSwapper = new SceneSwapper();
+        sceneSwapper.sceneSwitch(new Stage(), "Login.fxml");
+        stage.close();
 
     }
 
@@ -186,7 +218,16 @@ public class CoordinatorScreenController implements Initializable {
         a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
             userModel.deleteUser(tvGuest.getSelectionModel().getSelectedItem());
         });
-        fillTableView();
+        prepareTableview();
+    }
+
+    public void updateGuestList(MouseEvent mouseEvent) {
+        setTableviewForUser();
+    }
+
+    public void onShowAllGuestBtn(ActionEvent actionEvent) {
+        tvEvents.getSelectionModel().clearSelection();
+        setTableviewForUser();
     }
 }
 

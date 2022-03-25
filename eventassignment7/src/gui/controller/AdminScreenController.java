@@ -34,8 +34,6 @@ public class AdminScreenController implements Initializable {
     private TableColumn<Coordinator, String> tcUsername;
     @FXML
     private TableColumn<Coordinator, String> tcPassword;
-    @FXML
-    private TableColumn<Coordinator, String> tcEvent;
 
     private SceneSwapper sceneSwapper;
     private CoordinatorModel coordinatorModel;
@@ -67,7 +65,6 @@ public class AdminScreenController implements Initializable {
         tcName.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("Name"));
         tcUsername.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("username"));
         tcPassword.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("password"));
-        tcEvent.setCellValueFactory(new PropertyValueFactory<Coordinator, String>("event"));
         tvCoordinators.setItems(getAllCoordinators());
     }
 

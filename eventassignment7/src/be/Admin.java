@@ -1,27 +1,43 @@
 package be;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Admin {
 
-   private String username;
-   private String password;
 
-   public Admin(String username, String password) {;
+   private SimpleStringProperty username = new SimpleStringProperty();
+   private SimpleStringProperty password = new SimpleStringProperty();
+   private final StringProperty startTime = new SimpleStringProperty();
+   private final IntegerProperty coordinatorcreator = new SimpleIntegerProperty();
+
+   public Admin( String username, String password,int AdminCreator){
+
+      setUsername(username);
+      setPassword(password);
+      setAdminCreater(AdminCreator);
    }
 
-   public String getUsername() {
+   private void setAdminCreater(int adminCreator) {
+   }
+
+
+   public SimpleStringProperty getUsername() {
       return username;
    }
 
-   public void setUsername(String username) {
-      this.username = username;
+   public final void setUsername(String username){
+      this.username.set(username);
    }
 
-   public String getPassword() {
+   public SimpleStringProperty getPassword() {
       return password;
    }
 
-   public void setPassword(String password) {
-      this.password = password;
+   public final void setPassword(String password){
+      this.password.set(password);
    }
 
 

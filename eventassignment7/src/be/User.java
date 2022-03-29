@@ -1,50 +1,69 @@
 package be;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class User {
-    private int id;
-    private String name;
-    private String email;
-    private int phoneNumber;
-    private int eventID;
+    private final IntegerProperty id = new SimpleIntegerProperty();
+    private final StringProperty name = new SimpleStringProperty();
+    private final StringProperty email = new SimpleStringProperty();
+    private final IntegerProperty phoneNumber= new SimpleIntegerProperty();
+    private final IntegerProperty eventID = new SimpleIntegerProperty();
+    private final IntegerProperty Usercreator = new SimpleIntegerProperty();
 
-    public User(int id, String userName, String email, int phoneNumber, int userEventId) {
-        this.id = id;
-        this.name = userName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.eventID = userEventId;
+    public User(int id, String name, String email, int phoneNumber,int eventID, int UserCreator){
+        setId(id);
+        setName(name);
+        setEmail(email);
+        setPhoneNumber(phoneNumber);
+        seteventID(eventID);
 
+        setUsercreator(UserCreator);
     }
 
-    public String getName() {
+    public User(int id, String name, String email, int phoneNumber, int userEventID) {
+    }
+
+    private void setUsercreator(int userCreator) {
+    }
+
+
+    public StringProperty getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public final void setId(int id){
+        this.id.set(id);
     }
 
-    public int getId() {
+    public IntegerProperty getId() {
         return id;
     }
 
-    public String getEmail() {
+    public StringProperty getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public final void setName(String name){
+        this.name.set(name);
+    }
+    public final void setEmail(String email){
+        this.email.set(email);
+    }
+    public final void setPhoneNumber(int phoneNumber){
+        this.phoneNumber.set(phoneNumber);
+    }
+    public final void seteventID(int eventID){
+        this.eventID.set(eventID);
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public int getPhoneNumber() {
+    public IntegerProperty getPhoneNumber() {
         return phoneNumber;
     }
 
-    public int getEventID() {
+    public IntegerProperty getEventID() {
         return eventID;
     }
 }

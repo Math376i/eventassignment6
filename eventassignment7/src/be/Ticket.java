@@ -1,24 +1,38 @@
 package be;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Ticket {
-    private String EventName;
-    private String Address;
+
+    private final StringProperty EventName = new SimpleStringProperty();
+    private final StringProperty Address = new SimpleStringProperty();
+
+    public Ticket( String EventName, String Address,int TicketCreator){
+
+        setEventName(EventName);
+        setAddress(Address);
+        setTicketCreater(TicketCreator);
+    }
+
+    private void setTicketCreater(int ticketCreator) {
+    }
 
 
-
-    public String getAddress() {
+    public StringProperty getAddress() {
         return Address;
     }
 
-    public String getEventName() {
+    public StringProperty getEventName() {
         return EventName;
     }
 
-    public void setEventName(String eventName) {
-        EventName = eventName;
+    public final void setEventName(String EventName){
+        this.EventName.set(EventName);
     }
 
-    public void setAddress(String address) {
-        Address = address;
+    public final void setAddress(String Address){
+        this.Address.set(Address);
     }
+
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
+<AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
    <children>
       <AnchorPane layoutX="257.0" layoutY="27.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="45.0" layoutY="114.0" prefHeight="515.0" prefWidth="822.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
@@ -31,7 +31,11 @@
             </Label>
             <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateEvent" text="Create Event" />
             <Button layoutX="381.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateGuest" text="Create Geust" />
+<<<<<<< Updated upstream
             <Button layoutX="138.0" layoutY="465.0" mnemonicParsing="false" text="Manage Event" />
+=======
+            <Button layoutX="137.0" layoutY="206.0" mnemonicParsing="false" onAction="#onBtnManageEvent" text="Manage Event" />
+>>>>>>> Stashed changes
             <TableView fx:id="tvGuest" layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
               <columns>
                 <TableColumn fx:id="tcUserName" prefWidth="131.20001220703125" text="Name" />

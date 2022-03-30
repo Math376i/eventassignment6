@@ -48,8 +48,17 @@ public class EventDao implements IEvent {
     }
 
     @Override
-    public void updateEvent(User user) throws Exception {
+    public void updateEvent(Event event) throws Exception {
+        String sql = "UPDATE eventAssignment SET name=? adr=? starttime=?  WHERE Id=?;";
+        PreparedStatement preparedStatement = con.prepareStatement(sql);
+        preparedStatement.setString(1, event.getName());
+        preparedStatement.setString(2, event.getAddress());
+        preparedStatement.setString(3, event.getStartTime());
 
+        int affectedRows = preparedStatement.executeUpdate();
+        if (affectedRows != 1) {
+
+        }
     }
 
     @Override

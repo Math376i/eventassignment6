@@ -23,6 +23,9 @@ public class EventManager {
             e.printStackTrace();
         }
     }
+    public List<Event> getMovies() {
+        return EventDao.getEventFromCoordinator();
+    }
 
     public Event createEvent(String name, String adr, String startTime, Coordinator creator){
        return eventDao.createEvent(name,adr,startTime,creator);
@@ -34,5 +37,6 @@ public class EventManager {
     public Boolean removeEvent(Event event){
         return eventDao.removeEvent(event);
     }
+
 
 }

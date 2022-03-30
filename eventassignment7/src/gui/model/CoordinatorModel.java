@@ -1,6 +1,7 @@
 package gui.model;
 
 import be.Coordinator;
+import be.Event;
 import bll.CoordinatorManager;
 
 import java.util.List;
@@ -9,11 +10,9 @@ public class CoordinatorModel {
     CoordinatorManager coordinatorManager = new CoordinatorManager();
 
 
-    public Coordinator createKoordinator(String name, String username, String password) {
+    public Coordinator createCoordinator(String name, String username, String password) {
         return coordinatorManager.createCoordinator(name, username, password);
     }
-
-
 
     public List<Coordinator> getAllCoordinators(){
         return coordinatorManager.getAllCoordinators();

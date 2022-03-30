@@ -21,10 +21,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CoordinatorScreenController implements Initializable {
 
+    ObservableList<Event> allEvents = FXCollections.observableArrayList();
+
+    private CoordinatorModel coordinatorModel;
 
     @FXML
     private TableView<User> tvGuest;
@@ -137,5 +141,30 @@ public class CoordinatorScreenController implements Initializable {
         });
         fillTableView();
     }
+<<<<<<< Updated upstream
+=======
+
+    /**
+     * closes the screen and returns back to the login screen
+     */
+    public void OnLogoutBtn(ActionEvent actionEvent) throws IOException {
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            SceneSwapper sceneSwapper = new SceneSwapper();
+            sceneSwapper.sceneSwitch(new Stage(), "Login.fxml");
+            stage.close();
+
+    }
+
+    public void onBtnManageEvent(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorUpdateEventScreen.fxml");
+    }
+
+    public ObservableList<Event> getEvents() throws SQLException {
+        allEvents.clear();
+        allEvents.addAll(coordinatorModel.get());
+        asignCategoriesIntoMovies();
+        return allMovies;
+    }
+>>>>>>> Stashed changes
 }
 

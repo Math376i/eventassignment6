@@ -7,13 +7,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application {
-
-    private static FXMLLoader fxmlLoaderMain;
-
     public static void main(String[] args){
         launch(args);
     }
-
+    private static FXMLLoader fxmlLoaderMain;
     @Override
     public void start(Stage primaryStage) throws Exception {
         fxmlLoaderMain = new FXMLLoader(getClass().getResource("view/Login.fxml"));
@@ -23,5 +20,8 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Event Manager");
         primaryStage.show();
+    }
+    public CoordinatorScreenController getController() {
+        return fxmlLoaderMain.getController();
     }
 }

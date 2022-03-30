@@ -9,7 +9,7 @@ import java.util.List;
 public interface IEvent {
     public List<Event> getEvents();
     public Event createEvent(String name, String adr, String startTime, Coordinator creator);
-    public void updateEvent(User user) throws Exception;
+    public void updateEvent(Event event) throws Exception;
     public boolean removeEvent(Event event);
     public List<Event> getEventFromCoordinator(Coordinator coordinator);
 }

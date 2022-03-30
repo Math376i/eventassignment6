@@ -11,6 +11,10 @@ public class EventModel {
 
     private EventManager eventManager;
 
+    public List<Event> getEvents() {
+        return eventManager.getMovies();
+    }
+
     public EventModel(){
         eventManager = new EventManager();
     }

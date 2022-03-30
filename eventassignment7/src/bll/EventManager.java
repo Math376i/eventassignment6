@@ -31,6 +31,8 @@ public class EventManager {
        return eventDao.createEvent(name,adr,startTime,creator);
     }
 
+    public void updateEvent(Event event){return EventDao.updateEvent;}
+
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){
         return eventDao.getEventFromCoordinator(coordinator);
     }

@@ -3,6 +3,7 @@ package gui.controller;
 import be.Coordinator;
 import be.Event;
 import be.User;
+import dal.db.EventDao;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
 import gui.model.UserModel;
@@ -58,7 +59,12 @@ public class CoordinatorScreenController implements Initializable {
     private SceneSwapper sceneSwapper;
     private EventModel eventModel;
     private ObservableList<Event> allEventsFromCoordinator;
+<<<<<<< Updated upstream
     private ObservableList<User> allUsersFromEvents;
+=======
+    private ObservableList<User> userList;
+    private Event event;
+>>>>>>> Stashed changes
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -114,6 +120,20 @@ public class CoordinatorScreenController implements Initializable {
         return allEventsFromCoordinator;
     }
 
+<<<<<<< Updated upstream
+=======
+    public Event updateEvent(Event event){
+
+        tcEvent.getCellObservableValue(Event.getName(), Event.getAddress(), Event.getStartTime());
+        tcEvent.setCellValueFactory(?, ?, ?);
+        return event;
+    }
+
+
+    /**
+     * creates a guest for the program and database
+     */
+>>>>>>> Stashed changes
     public void onCreateGuest(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddUserScreen.fxml");
     }

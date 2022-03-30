@@ -104,6 +104,7 @@ public class CoordinatorScreenController implements Initializable {
         tcLocation.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
 
         // setup for the tableview users
+        //TODO ændre den her til det samme som ovenover
         tcUserName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
         tcNumber.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
@@ -113,25 +114,24 @@ public class CoordinatorScreenController implements Initializable {
         setTableviewForEvents();
     }
 
-    public void setTableviewForEvents(){
+    public void setTableviewForEvents() {
         tvEvents.setItems(getEventFromCoordinator());
     }
 
-    public void setTableviewForUser(){
+    public void setTableviewForUser() {
 
-            // Clear the list
-            userList.clear();
-            //checks if there is an event selected
-            if (tvEvents.getSelectionModel().isEmpty()) {
-                userList.addAll(getAllUsers()); //add all users if no event selected
-            } else {
-                //adds all users signed on that event
-                userList.addAll(userModel.getUsersFromEvent(tvEvents.getSelectionModel().getSelectedItem()));
-            }
-            // sets the users on the tableview
-            tvGuest.setItems(userList);
+        // Clear the list
+        userList.clear();
+        //checks if there is an event selected
+        if (tvEvents.getSelectionModel().isEmpty()) {
+            userList.addAll(getAllUsers()); //add all users if no event selected
+        } else {
+            //adds all users signed on that event
+            userList.addAll(userModel.getUsersFromEvent(tvEvents.getSelectionModel().getSelectedItem()));
+        }
+        // sets the users on the tableview
+        tvGuest.setItems(userList);
     }
-
 
 
     /**

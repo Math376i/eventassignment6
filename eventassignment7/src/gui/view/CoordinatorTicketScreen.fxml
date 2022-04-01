@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="backgrounding2" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorCreateTicketController">
+   <children>
+      <AnchorPane layoutX="333.0" layoutY="24.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
+      <AnchorPane layoutX="38.0" layoutY="100.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Button layoutX="846.0" layoutY="601.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="54.0" text="Back" />
+            <HBox layoutX="93.0" layoutY="292.0" prefHeight="331.0" prefWidth="716.0" style="-fx-border-color: black;" styleClass="ticketBackground">
+               <children>
+                  <Pane prefHeight="331.0" prefWidth="72.0" style="-fx-border-color: black;">
+                     <children>
+                        <Label layoutX="-127.0" layoutY="140.0" prefHeight="32.0" prefWidth="322.0" rotate="270.0" text="Ticket Number: 3242342342332" underline="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <VBox prefHeight="331.0" prefWidth="474.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="483.0" style="-fx-border-color: black;" text="Event Name" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="474.0" style="-fx-border-color: black;" text="this is your place to type">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <GridPane prefHeight="132.0" prefWidth="474.0" style="-fx-border-color: black;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.33331298828125" minWidth="10.0" prefWidth="229.53335571289062" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.46664428710938" minWidth="10.0" prefWidth="244.46664428710938" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="140.8" minHeight="9.466631126403808" prefHeight="9.466631126403808" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="156.4000244140625" minHeight="10.0" prefHeight="53.99999999999999" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="156.4000244140625" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="146.06669921875" minHeight="0.0" prefHeight="69.06671524047852" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="236.0" text="Feb" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                                       <font>
+                                          <Font name="System Bold" size="46.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Label alignment="CENTER" prefHeight="61.0" prefWidth="230.0" text="27" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="58.0" />
+                                 </font>
+                              </Label>
+                              <Label text="All Inclusive" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <Label prefHeight="46.0" prefWidth="491.0" style="-fx-border-color: black;" text="Feb 27  kl 20:00 ">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="46.0" prefWidth="484.0" style="-fx-border-color: black;" text="Spangsbjergmøllevej 36 D 6700 esbjerg">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="-55.0" layoutY="8.0" prefHeight="316.0" prefWidth="322.0" rotate="270.0" text="lllllllllllll">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="212.0" layoutY="1.0" mnemonicParsing="false" text="Print ticket" />
+                        <Button layoutX="200.0" layoutY="39.0" mnemonicParsing="false" text="Print All Tickets" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <TableView layoutX="93.0" layoutY="61.0" prefHeight="200.0" prefWidth="716.0">
+              <columns>
+                  <TableColumn prefWidth="119.99996948242188" text="EventName" />
+                  <TableColumn prefWidth="225.6000518798828" text="GuestName" />
+                  <TableColumn prefWidth="120.79998779296875" text="Adress" />
+                  <TableColumn prefWidth="125.5999755859375" text="StartTime" />
+                <TableColumn prefWidth="65.5999755859375" text="Guest id" />
+                <TableColumn prefWidth="63.199951171875" text="Event id" />
+              </columns>
+            </TableView>
+            <Label layoutX="566.0" layoutY="31.0" text="Select Event" />
+            <ComboBox layoutX="658.0" layoutY="27.0" prefWidth="150.0" />
+            <Label layoutX="93.0" layoutY="31.0" text="Tickets">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button layoutX="829.0" layoutY="62.0" mnemonicParsing="false" text="Check List" />
+            <Button layoutX="816.0" layoutY="103.0" mnemonicParsing="false" text="Print Check List" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="377.0" layoutY="25.0" styleClass="logo" AnchorPane.topAnchor="25.0">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

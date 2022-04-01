@@ -208,18 +208,6 @@ public class CoordinatorScreenController implements Initializable {
 
     }
 
-    public void onCreateTicket(ActionEvent actionEvent) throws IOException {
-        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddTicketScreen.fxml");
-
-    }
-
-    public void OnRemoveTicket(ActionEvent actionEvent) {
-        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Ticket");
-        a.showAndWait().filter(ButtonType.OK::equals).ifPresent(b -> {
-            userModel.deleteUser(tvGuest.getSelectionModel().getSelectedItem());
-        });
-        prepareTableview();
-    }
 
     public void updateGuestList(MouseEvent mouseEvent) {
         setTableviewForUser();
@@ -228,6 +216,10 @@ public class CoordinatorScreenController implements Initializable {
     public void onShowAllGuestBtn(ActionEvent actionEvent) {
         tvEvents.getSelectionModel().clearSelection();
         setTableviewForUser();
+    }
+
+    public void onTicketsBtn(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorTicketScreen.fxml");
     }
 }
 

@@ -13,11 +13,11 @@
 <AnchorPane prefHeight="653.0" prefWidth="898.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorScreenController">
    <children>
       <AnchorPane layoutX="257.0" layoutY="27.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
-      <AnchorPane layoutX="45.0" layoutY="114.0" prefHeight="515.0" prefWidth="822.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
+      <AnchorPane layoutX="46.0" layoutY="113.0" prefHeight="515.0" prefWidth="822.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
          <children>
             <Button layoutX="737.0" layoutY="457.0" mnemonicParsing="false" onAction="#OnLogoutBtn" prefHeight="43.0" prefWidth="70.0" text="Logout" />
             <Accordion layoutX="99.0" layoutY="121.0" />
-            <TableView fx:id="tvEvents" layoutX="38.0" layoutY="63.0" onMouseClicked="#updateGuestList" prefHeight="125.0" prefWidth="299.0">
+            <TableView fx:id="tvEvents" layoutX="38.0" layoutY="63.0" onMouseClicked="#updateGuestList" prefHeight="193.0" prefWidth="299.0">
               <columns>
                 <TableColumn fx:id="tcEvent" prefWidth="147.1999969482422" text="Event" />
                   <TableColumn fx:id="tcDate" prefWidth="74.39996337890625" text="Date" />
@@ -29,9 +29,9 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button layoutX="38.0" layoutY="206.0" mnemonicParsing="false" onAction="#onCreateEvent" text="Create Event" />
+            <Button layoutX="39.0" layoutY="276.0" mnemonicParsing="false" onAction="#onCreateEvent" text="Create Event" />
             <Button layoutX="381.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateGuest" text="Create Geust" />
-            <Button layoutX="137.0" layoutY="206.0" mnemonicParsing="false" text="Manage Event" />
+            <Button layoutX="136.0" layoutY="276.0" mnemonicParsing="false" text="Manage Event" />
             <TableView fx:id="tvGuest" layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
               <columns>
                 <TableColumn fx:id="tcUserName" prefWidth="131.20001220703125" text="Name" />
@@ -47,22 +47,9 @@
             </Label>
             <Button layoutX="483.0" layoutY="465.0" mnemonicParsing="false" onAction="#onManageGuest" text="Manage Guest" />
             <Button layoutX="682.0" layoutY="27.0" mnemonicParsing="false" onAction="#onShowAllGuestBtn" text="Show All Guest" />
-            <Button layoutX="243.0" layoutY="206.0" mnemonicParsing="false" onAction="#onRemoveEventBtn" text="Remove Event" />
+            <Button layoutX="243.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRemoveEventBtn" text="Remove Event" />
             <Button layoutX="595.0" layoutY="465.0" mnemonicParsing="false" onAction="#onRemoveGuest" text="Remove Guest" />
-            <Label layoutX="38.0" layoutY="244.0" text="Tickets you Have">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <TableView layoutX="37.0" layoutY="279.0" prefHeight="173.0" prefWidth="299.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="Ticket Name" />
-                <TableColumn prefWidth="75.0" text="Event" />
-              </columns>
-            </TableView>
-            <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#onCreateTicket" text="Create Ticket" />
-            <Button layoutX="242.0" layoutY="465.0" mnemonicParsing="false" onAction="#OnRemoveTicket" text="Remove Ticket" />
-            <Button layoutX="137.0" layoutY="465.0" mnemonicParsing="false" text="Change Ticket" />
+            <Button layoutX="282.0" layoutY="27.0" mnemonicParsing="false" onAction="#onTicketsBtn" text="Tickets" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="301.0" layoutY="27.0" styleClass="logo" AnchorPane.topAnchor="27.0">

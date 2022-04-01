@@ -2,8 +2,11 @@ package gui.controller;
 
 import be.Coordinator;
 import be.Event;
+import be.User;
+import bll.TicketManager;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
+import gui.model.TicketModel;
 import gui.model.UserModel;
 import gui.util.SceneSwapper;
 import javafx.collections.FXCollections;
@@ -94,7 +97,10 @@ public class CoordinatorAddUserController implements Initializable {
             }
                 for (Event event: allEventsFromCoordinator){
                     if (event.getName().equals(comboboxEvents.getSelectionModel().getSelectedItem())){
-                        userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), event.getId());
+                        User user = userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), event.getId());
+                        TicketModel ticketModel = new TicketModel();
+                        ticketModel.createTicket(event, user);
+                        break;
                     }
                 }
                 tfName.setText("");

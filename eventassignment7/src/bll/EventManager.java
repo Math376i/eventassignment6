@@ -23,7 +23,7 @@ public class EventManager {
             e.printStackTrace();
         }
     }
-    public List<Event> getMovies() {
+    public List<Event> getEvents() {
         return EventDao.getEventFromCoordinator();
     }
 

@@ -13,7 +13,7 @@ public class EventModel {
     private EventManager eventManager;
 
     public List<Event> getEvents() {
-        return eventManager.getMovies();
+        return eventManager.getEvents();
     }
 
     public EventModel(){

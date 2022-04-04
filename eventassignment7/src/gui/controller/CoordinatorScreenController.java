@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
@@ -28,8 +29,6 @@ import java.util.ResourceBundle;
 public class CoordinatorScreenController implements Initializable {
 
     ObservableList<Event> allEvents = FXCollections.observableArrayList();
-
-    private CoordinatorModel coordinatorModel;
 
     @FXML
     private TableView<User> tvGuest;
@@ -59,12 +58,10 @@ public class CoordinatorScreenController implements Initializable {
     private SceneSwapper sceneSwapper;
     private EventModel eventModel;
     private ObservableList<Event> allEventsFromCoordinator;
-<<<<<<< Updated upstream
-    private ObservableList<User> allUsersFromEvents;
-=======
+
     private ObservableList<User> userList;
     private Event event;
->>>>>>> Stashed changes
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -120,8 +117,6 @@ public class CoordinatorScreenController implements Initializable {
         return allEventsFromCoordinator;
     }
 
-<<<<<<< Updated upstream
-=======
     public Event updateEvent(Event event){
 
         tcEvent.getCellObservableValue(Event.getName(), Event.getAddress(), Event.getStartTime());
@@ -133,7 +128,7 @@ public class CoordinatorScreenController implements Initializable {
     /**
      * creates a guest for the program and database
      */
->>>>>>> Stashed changes
+
     public void onCreateGuest(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddUserScreen.fxml");
     }
@@ -161,8 +156,6 @@ public class CoordinatorScreenController implements Initializable {
         });
         fillTableView();
     }
-<<<<<<< Updated upstream
-=======
 
     /**
      * closes the screen and returns back to the login screen
@@ -181,10 +174,10 @@ public class CoordinatorScreenController implements Initializable {
 
     public ObservableList<Event> getEvents() throws SQLException {
         allEvents.clear();
-        allEvents.addAll(coordinatorModel.get());
+        allEvents.addAll(EventModel.updateEvent());
         asignCategoriesIntoMovies();
-        return allMovies;
+        return allEvents;
     }
->>>>>>> Stashed changes
+
 }
 

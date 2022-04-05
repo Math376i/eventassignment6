@@ -14,12 +14,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="backgrounding2" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorCreateTicketController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="backgrounding2" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorCreateTicketController">
    <children>
       <AnchorPane layoutX="333.0" layoutY="24.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="38.0" layoutY="114.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="100.0">
          <children>
-            <Button layoutX="846.0" layoutY="601.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="54.0" text="Back" />
+            <Button layoutX="846.0" layoutY="601.0" mnemonicParsing="false" onAction="#onBack" prefHeight="43.0" prefWidth="54.0" text="Back" />
             <HBox layoutX="99.0" layoutY="115.0" prefHeight="331.0" prefWidth="738.0" style="-fx-border-color: black;" styleClass="ticketBackground">
                <children>
                   <Pane prefHeight="331.0" prefWidth="72.0" style="-fx-border-color: black;">

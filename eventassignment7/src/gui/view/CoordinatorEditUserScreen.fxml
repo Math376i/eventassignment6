@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="421.0" minWidth="500.0" prefHeight="421.0" prefWidth="500.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorEditUserController">
+<AnchorPane minHeight="421.0" minWidth="500.0" prefHeight="421.0" prefWidth="500.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorEditUserController">
    <children>
       <AnchorPane layoutX="57.0" layoutY="28.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="93.0" layoutY="143.0" minHeight="30.0" minWidth="30.0" prefHeight="240.0" prefWidth="314.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
@@ -19,7 +19,7 @@
             <Label layoutX="17.0" layoutY="30.0" text="Name" />
             <Label layoutX="19.0" layoutY="69.0" text="Email" />
             <Label layoutX="19.0" layoutY="108.0" text="Number" />
-            <Button layoutX="181.0" layoutY="193.0" mnemonicParsing="false" onAction="#onAddUser" text="Add" />
+            <Button layoutX="181.0" layoutY="193.0" mnemonicParsing="false" onAction="#onEditUser" text="Edit" />
             <Button layoutX="235.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClose" text="Close" />
             <ComboBox fx:id="comboboxEvents" layoutX="75.0" layoutY="139.0" prefHeight="26.0" prefWidth="212.0" promptText="Events" />
             <Label layoutX="18.0" layoutY="143.0" text="Event" />

@@ -11,23 +11,23 @@ public class User {
     private final StringProperty email = new SimpleStringProperty();
     private final IntegerProperty phoneNumber= new SimpleIntegerProperty();
     private final IntegerProperty eventID = new SimpleIntegerProperty();
-    private final IntegerProperty Usercreator = new SimpleIntegerProperty();
 
-    public User(int id, String name, String email, int phoneNumber,int eventID, int UserCreator){
+    public User(int id, String name, String email, int phoneNumber,int eventID){
         setId(id);
         setName(name);
         setEmail(email);
         setPhoneNumber(phoneNumber);
         seteventID(eventID);
 
-        setUsercreator(UserCreator);
     }
 
-    public User(int id, String name, String email, int phoneNumber, int userEventID) {
+    public User(int id, String name, String email, int phoneNumber) {
+        setId(id);
+        setName(name);
+        setEmail(email);
+        setPhoneNumber(phoneNumber);
     }
 
-    private void setUsercreator(int userCreator) {
-    }
 
 
     public String getName() {
@@ -63,7 +63,23 @@ public class User {
         return phoneNumber.get();
     }
 
-    public IntegerProperty getEventID() {
+    public IntegerProperty idProperty() {
+        return id;
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public IntegerProperty eventIDProperty() {
         return eventID;
+    }
+
+    public IntegerProperty phoneNumberProperty() {
+        return phoneNumber;
+    }
+
+    public StringProperty emailProperty() {
+        return email;
     }
 }

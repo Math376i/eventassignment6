@@ -6,21 +6,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Admin {
-
-
+   
    private SimpleStringProperty username = new SimpleStringProperty();
    private SimpleStringProperty password = new SimpleStringProperty();
 
-   public Admin( String username, String password,int AdminCreator){
+   public Admin( String username, String password){
 
       setUsername(username);
       setPassword(password);
-      setAdminCreater(AdminCreator);
    }
-
-   private void setAdminCreater(int adminCreator) {
-   }
-
 
    public String getUsername() {
       return username.get();
@@ -38,5 +32,12 @@ public class Admin {
       this.password.set(password);
    }
 
+   public SimpleStringProperty usernameProperty() {
+      return username;
+   }
+
+   public SimpleStringProperty passwordProperty() {
+      return password;
+   }
 }
 

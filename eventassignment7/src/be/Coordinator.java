@@ -1,48 +1,60 @@
 package be;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Coordinator {
 
-    private int id;
-    private String name;
-    private String username;
-    private String password;
+    private final IntegerProperty id = new SimpleIntegerProperty();
+    private final StringProperty name = new SimpleStringProperty();
+    private final StringProperty username = new SimpleStringProperty();
+    private final StringProperty password = new SimpleStringProperty();
+    private final IntegerProperty coordinatorcreator = new SimpleIntegerProperty();
 
-    public Coordinator(int id, String name, String username, String password) {
-    this.id = id;
-    this.name = name;
-    this.username = username;
-    this.password = password;
+    public Coordinator (int id, String name, String username, String password, int coordinatorCreator){
+        setId(id);
+        setName(name);
+        setUsername(username);
+        setPassword(password);
+        setCoordinatorcreator(coordinatorCreator);
     }
+
+    private void setCoordinatorcreator(int coordinatorCreator) {
+    }
+
 
     public int getId() {
-        return id;
+        return id.get();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public final void setId(int id){
+        this.id.set(id);
+    }
+
+    public final void setName(String name){
+        this.name.set(name);
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getUsername() {
-        return String.valueOf(username);
+        return (username).get();
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public final void setUsername(String username){
+        this.username.set(username);
     }
 
     public String getPassword() {
-        return password;
+        return password.get();
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public final void setPassword(String password){
+        this.password.set(password);
     }
 }

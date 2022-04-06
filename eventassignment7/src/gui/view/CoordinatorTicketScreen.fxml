@@ -114,7 +114,7 @@
               </columns>
             </TableView>
             <Label layoutX="566.0" layoutY="31.0" text="Select Event" />
-            <ComboBox layoutX="658.0" layoutY="27.0" prefWidth="150.0" />
+            <ComboBox fx:id="comboBoxEvent" layoutX="658.0" layoutY="27.0" onAction="#onComboBoxEvent" prefWidth="150.0" />
             <Label layoutX="93.0" layoutY="31.0" text="Tickets">
                <font>
                   <Font size="23.0" />

@@ -35,9 +35,8 @@
             <TableView fx:id="tvGuest" layoutX="381.0" layoutY="63.0" prefHeight="390.0" prefWidth="399.0">
               <columns>
                 <TableColumn fx:id="tcUserName" prefWidth="131.20001220703125" text="Name" />
-                <TableColumn fx:id="tcEmail" prefWidth="89.5999755859375" text="Email" />
-                  <TableColumn fx:id="tcNumber" prefWidth="74.39996337890625" text="Number" />
-                  <TableColumn fx:id="tcTicketName" prefWidth="104.7999267578125" text="Ticket Name" />
+                <TableColumn fx:id="tcEmail" prefWidth="167.20001220703125" text="Email" />
+                  <TableColumn fx:id="tcNumber" prefWidth="99.99993896484375" text="Number" />
               </columns>
             </TableView>
             <Label layoutX="381.0" layoutY="27.0" text="Guest for your event">

@@ -79,6 +79,12 @@ public class User {
         return phoneNumber;
     }
 
+    public StringProperty phoneNumberPropertyasStringProperty() {
+        StringProperty stringProperty = new SimpleStringProperty();
+        stringProperty.set(phoneNumber.toString());
+        return stringProperty;
+    }
+
     public StringProperty emailProperty() {
         return email;
     }

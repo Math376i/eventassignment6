@@ -7,6 +7,7 @@ import gui.model.CoordinatorModel;
 import gui.model.EventModel;
 import gui.model.UserModel;
 import gui.util.SceneSwapper;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -40,7 +41,6 @@ public class CoordinatorScreenController implements Initializable {
     private TableColumn<User, String> tcNumber;
     @FXML
     private TableColumn<User, String> tcTicketName;
-
 
     // for event table view
     @FXML
@@ -104,11 +104,10 @@ public class CoordinatorScreenController implements Initializable {
         tcLocation.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
 
         // setup for the tableview users
-        //TODO ændre den her til det samme som ovenover
-        tcUserName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        tcEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-        tcNumber.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
-        tcTicketName.setCellValueFactory(new PropertyValueFactory<User, String>("ticketName"));
+
+        tcUserName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        tcEmail.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+        tcNumber.setCellValueFactory(cellData -> cellData.getValue().phoneNumberPropertyasStringProperty());
 
         setTableviewForUser();
         setTableviewForEvents();

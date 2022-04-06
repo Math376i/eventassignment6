@@ -31,8 +31,10 @@ public class Ticket {
         return teventid.get();
     }
 
-    public IntegerProperty teventidProperty() {
-        return teventid;
+    public StringProperty teventidProperty() {
+        SimpleStringProperty stringProperty = new SimpleStringProperty();
+        stringProperty.set(String.valueOf(teventid.get()));
+        return stringProperty;
     }
 
 
@@ -41,11 +43,14 @@ public class Ticket {
     }
 
     public int getTuserID() {
+
         return tuserid.get();
     }
 
-    public IntegerProperty tuseridProperty() {
-        return teventid;
+    public StringProperty tuseridProperty() {
+        SimpleStringProperty stringProperty = new SimpleStringProperty();
+        stringProperty.set(String.valueOf(teventid.get()));
+        return stringProperty;
     }
 
 

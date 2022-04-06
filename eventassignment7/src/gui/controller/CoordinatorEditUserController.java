@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class CoordinatorEditUserController {
     public void onEditUser(ActionEvent actionEvent) {
+
     }
 
     public void onClose(ActionEvent actionEvent)  {

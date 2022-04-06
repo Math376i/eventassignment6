@@ -220,5 +220,13 @@ public class CoordinatorScreenController implements Initializable {
     public void onTicketsBtn(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorTicketScreen.fxml");
     }
+
+    public void onEditGuest(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(),"CoordinatorEditUserScreen.fxml");
+    }
+
+    public void onEditEvent(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorEditEventScreen.fxml");
+    }
 }
 

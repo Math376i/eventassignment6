@@ -11,18 +11,15 @@ public class Coordinator {
     private final StringProperty name = new SimpleStringProperty();
     private final StringProperty username = new SimpleStringProperty();
     private final StringProperty password = new SimpleStringProperty();
-    private final IntegerProperty coordinatorcreator = new SimpleIntegerProperty();
 
-    public Coordinator (int id, String name, String username, String password, int coordinatorCreator){
+
+    public Coordinator (int id, String name, String username, String password){
         setId(id);
         setName(name);
         setUsername(username);
         setPassword(password);
-        setCoordinatorcreator(coordinatorCreator);
     }
 
-    private void setCoordinatorcreator(int coordinatorCreator) {
-    }
 
 
     public int getId() {
@@ -56,5 +53,21 @@ public class Coordinator {
 
     public final void setPassword(String password){
         this.password.set(password);
+    }
+
+    public StringProperty usernameProperty() {
+        return username;
+    }
+
+    public IntegerProperty idProperty() {
+        return id;
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
     }
 }

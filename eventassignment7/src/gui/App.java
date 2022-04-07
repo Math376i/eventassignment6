@@ -1,6 +1,7 @@
 package gui;
 
 import gui.controller.CoordinatorScreenController;
+import gui.util.TicketReferenceNumber;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,5 +24,6 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Event Manager");
         primaryStage.show();
+
     }
 }

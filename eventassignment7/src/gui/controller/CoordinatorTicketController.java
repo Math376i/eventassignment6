@@ -7,6 +7,7 @@ import gui.model.CoordinatorModel;
 import gui.model.EventModel;
 import gui.model.TicketModel;
 import gui.util.SceneSwapper;
+import gui.util.TicketReferenceNumber;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +32,7 @@ import java.util.ResourceBundle;
 public class CoordinatorTicketController implements Initializable {
 
     public HBox ticketID;
+    public Label lblTicketRefNum;
     @FXML
     private ComboBox comboBoxEvent;
     @FXML
@@ -158,6 +160,9 @@ public class CoordinatorTicketController implements Initializable {
             guestNameID.setText(tvTickets.getSelectionModel().getSelectedItem().getGuestName());
             addressID.setText(tvTickets.getSelectionModel().getSelectedItem().getAddress());
             startTimeID.setText(tvTickets.getSelectionModel().getSelectedItem().getStartTime());
+            TicketReferenceNumber ticketReferenceNumber = new TicketReferenceNumber();
+            lblTicketRefNum.setText(ticketReferenceNumber.getTicketRefNum(tvTickets.getSelectionModel().getSelectedItem().getGuestName() + tvTickets.getSelectionModel().getSelectedItem().getTuserID()));
+
         }
 
     }

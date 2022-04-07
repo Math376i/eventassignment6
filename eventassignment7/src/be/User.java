@@ -81,7 +81,7 @@ public class User {
 
     public StringProperty phoneNumberPropertyasStringProperty() {
         StringProperty stringProperty = new SimpleStringProperty();
-        stringProperty.set(phoneNumber.toString());
+        stringProperty.set(String.valueOf(phoneNumber.get()));
         return stringProperty;
     }
 

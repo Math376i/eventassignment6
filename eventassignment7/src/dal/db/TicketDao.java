@@ -65,7 +65,7 @@ public class TicketDao implements ITicket {
             statement.setInt(2, user.getId());
             statement.setString(3, event.getName());
             statement.setString(4, user.getName());
-            statement.setString(5, event.getStartTime());
+            statement.setString(5, event.getAddress());
             statement.setString(6, event.getStartTime());
             statement.execute();
             ResultSet rs = statement.getGeneratedKeys();

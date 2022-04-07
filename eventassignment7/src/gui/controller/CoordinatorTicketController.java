@@ -17,6 +17,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -28,6 +30,7 @@ import java.util.ResourceBundle;
 
 public class CoordinatorTicketController implements Initializable {
 
+    public HBox ticketID;
     @FXML
     private ComboBox comboBoxEvent;
     @FXML
@@ -35,7 +38,7 @@ public class CoordinatorTicketController implements Initializable {
     @FXML
     private Label addressID;
     @FXML
-    private Label eventID;
+    private Label eventNameID;
     @FXML
     private Label guestNameID;
 
@@ -147,5 +150,15 @@ public class CoordinatorTicketController implements Initializable {
         if (!comboBoxEvent.getSelectionModel().isEmpty()){
             setTableviewForTickets();
         }
+    }
+
+    public void onTableViewTicket(MouseEvent mouseEvent) {
+        if (!tvTickets.getSelectionModel().isEmpty()){
+            eventNameID.setText(tvTickets.getSelectionModel().getSelectedItem().getEventName());
+            guestNameID.setText(tvTickets.getSelectionModel().getSelectedItem().getGuestName());
+            addressID.setText(tvTickets.getSelectionModel().getSelectedItem().getAddress());
+            startTimeID.setText(tvTickets.getSelectionModel().getSelectedItem().getStartTime());
+        }
+
     }
 }

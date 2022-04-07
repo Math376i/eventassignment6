@@ -43,13 +43,12 @@ public class Ticket {
     }
 
     public int getTuserID() {
-
         return tuserid.get();
     }
 
     public StringProperty tuseridProperty() {
         SimpleStringProperty stringProperty = new SimpleStringProperty();
-        stringProperty.set(String.valueOf(teventid.get()));
+        stringProperty.set(String.valueOf(tuserid.get()));
         return stringProperty;
     }
 

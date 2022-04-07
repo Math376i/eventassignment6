@@ -35,7 +35,7 @@
                   </Pane>
                   <VBox prefHeight="331.0" prefWidth="474.0">
                      <children>
-                        <Label fx:id="eventID" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="483.0" style="-fx-border-color: black;" text="Event Name" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                        <Label fx:id="eventNameID" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="483.0" style="-fx-border-color: black;" text="Event Name" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                            <font>
                               <Font size="35.0" />
                            </font>
@@ -103,7 +103,7 @@
                   </Pane>
                </children>
             </HBox>
-            <TableView fx:id="tvTickets" layoutX="93.0" layoutY="61.0" prefHeight="200.0" prefWidth="716.0">
+            <TableView fx:id="tvTickets" layoutX="93.0" layoutY="61.0" onMouseClicked="#onTableViewTicket" prefHeight="200.0" prefWidth="716.0">
               <columns>
                   <TableColumn fx:id="tcEventName" prefWidth="119.99996948242188" text="EventName" />
                   <TableColumn fx:id="tcGuestName" prefWidth="225.6000518798828" text="GuestName" />

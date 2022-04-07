@@ -165,12 +165,6 @@ public class CoordinatorScreenController implements Initializable {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorAddEventScreen.fxml");
     }
 
-    /**
-     * /TODO so you can change in guest information
-     */
-    public void onManageGuest(ActionEvent actionEvent) {
-
-    }
 
     /**
      * removes a guest/user from the program and database
@@ -219,6 +213,14 @@ public class CoordinatorScreenController implements Initializable {
 
     public void onTicketsBtn(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorTicketScreen.fxml");
+    }
+
+    public void onEditGuest(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(),"CoordinatorEditUserScreen.fxml");
+    }
+
+    public void onEditEvent(ActionEvent actionEvent) throws IOException {
+        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorEditEventScreen.fxml");
     }
 }
 

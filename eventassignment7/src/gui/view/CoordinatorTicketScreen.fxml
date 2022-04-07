@@ -71,9 +71,9 @@
                                     <Font name="System Bold" size="58.0" />
                                  </font>
                               </Label>
-                              <Label text="All Inclusive" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label text="2022" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
-                                    <Font size="30.0" />
+                                    <Font name="System Bold" size="96.0" />
                                  </font>
                               </Label>
                            </children>

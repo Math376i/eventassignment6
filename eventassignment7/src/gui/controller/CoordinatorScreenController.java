@@ -141,6 +141,12 @@ public class CoordinatorScreenController implements Initializable {
     }
 
 
+
+    public User getSelectedUser(){
+        return tvGuest.getSelectionModel().getSelectedItem();
+    }
+
+
     /**
      * gets all events from one coordinator
      */

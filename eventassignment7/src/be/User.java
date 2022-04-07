@@ -88,4 +88,9 @@ public class User {
     public StringProperty emailProperty() {
         return email;
     }
+
+    public int getEventID() {
+        return eventID.get();
+    }
+
 }

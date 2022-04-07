@@ -64,11 +64,17 @@ public class UserDAO implements IUser {
     @Override
     public void updateUser(User user) throws Exception {
 
-        String sql = "UPDATE [User] SET name = ?, email=?, phoneNumber=?, WHERE userID=?;";
+
+        String sql = "UPDATE [User] SET name = ?, email=?, phoneNumber=?, userEventID=? WHERE userID=?;";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
         preparedStatement.setString(1, user.getName());
         preparedStatement.setString(2, user.getEmail());
         preparedStatement.setInt(3, user.getPhoneNumber());
+        if (user.getEventID() != -1){
+            preparedStatement.setInt(4, user.getEventID());
+        }else{
+            preparedStatement.setNull(4, Types.INTEGER);
+        }
         preparedStatement.executeUpdate();
     }
 

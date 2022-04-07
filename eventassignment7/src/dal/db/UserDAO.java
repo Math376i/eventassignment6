@@ -1,7 +1,5 @@
 package dal.db;
 
-
-import be.Coordinator;
 import be.Event;
 import be.User;
 import dal.Interfaces.IUser;

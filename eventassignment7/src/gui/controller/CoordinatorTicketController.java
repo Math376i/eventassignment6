@@ -66,6 +66,7 @@ public class CoordinatorTicketController implements Initializable {
     private CoordinatorModel coordinatorModel;
     private EventModel eventModel;
     private TicketModel ticketModel;
+    private Object CreatePDF;
 
 
     @Override
@@ -165,5 +166,9 @@ public class CoordinatorTicketController implements Initializable {
 
         }
 
+    }
+
+    public Object onPrintTicket(ActionEvent actionEvent) {
+        return CreatePDF;
     }
 }

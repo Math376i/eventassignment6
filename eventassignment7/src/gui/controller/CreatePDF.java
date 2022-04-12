@@ -1,14 +1,18 @@
+package gui.controller;
 
-    import java.io.IOException;
+import java.io.IOException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
-    class CreatePDF
+import java.io.IOException;
+
+public class CreatePDF {
+
     {
 
         {
             PDDocument pdfdoc= new PDDocument();
             pdfdoc.addPage(new PDPage());
-//path where the PDF file will be store
+
             try {
                 pdfdoc.save("C:\\Users\\desktop\\Sample.pdf");
             } catch (IOException e) {
@@ -25,3 +29,5 @@ import org.apache.pdfbox.pdmodel.PDPage;
         }
     }
 
+
+}

@@ -10,7 +10,7 @@ import org.apache.pdfbox.pdmodel.PDPage;
             pdfdoc.addPage(new PDPage());
 //path where the PDF file will be store
             try {
-                pdfdoc.save("C:\\Users\\Anubhav\\Desktop\\Java PDF\\Sample.pdf");
+                pdfdoc.save("C:\\Users\\desktop\\Sample.pdf");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class CoordinatorUpdateEventController {
 
     CoordinatorScreenController coordinatorScreenController = new App().getController();
-        coordinatorScreenController.();
+        coordinatorScreenController.getEvents();
         coordinatorScreenController.fillTableview();
 }
 

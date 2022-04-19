@@ -24,14 +24,14 @@ public class EventManager {
         }
     }
     public List<Event> getEvents() {
-        return EventDao.getEventFromCoordinator();
+        return eventDao.getEventFromCoordinator();
     }
 
     public Event createEvent(String name, String adr, String startTime, Coordinator creator){
        return eventDao.createEvent(name,adr,startTime,creator);
     }
 
-    public void updateEvent(Event event){return EventDao.updateEvent;}
+    public void updateEvent(Event event){return eventDao.updateEvent;}
 
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){
         return eventDao.getEventFromCoordinator(coordinator);

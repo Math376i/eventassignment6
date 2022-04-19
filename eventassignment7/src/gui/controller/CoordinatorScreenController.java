@@ -175,7 +175,7 @@ public class CoordinatorScreenController implements Initializable {
     public ObservableList<Event> getEvents() throws SQLException {
         allEvents.clear();
         allEvents.addAll(EventModel.updateEvent());
-        asignCategoriesIntoMovies();
+        assignCategoriesIntoMovies();
         return allEvents;
     }
 

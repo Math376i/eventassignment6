@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="556.0" prefWidth="879.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminScreenController">
+<AnchorPane prefHeight="556.0" prefWidth="879.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AdminScreenController">
    <children>
       <AnchorPane layoutX="257.0" layoutY="27.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="38.0" layoutY="114.0" minHeight="10.0" minWidth="10.0" prefHeight="400.0" prefWidth="800.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
@@ -20,9 +20,8 @@
                   <TableColumn fx:id="tcPassword" minWidth="0.0" prefWidth="140.7999267578125" text="Password" />
               </columns>
             </TableView>
-            <Button layoutX="651.0" layoutY="182.0" mnemonicParsing="false" onAction="#onAddCoordinatorBtn" prefHeight="27.0" prefWidth="128.0" text="Add Coordinator" />
+            <Button layoutX="651.0" layoutY="117.0" mnemonicParsing="false" onAction="#onAddCoordinatorBtn" prefHeight="27.0" prefWidth="128.0" text="Add Coordinator" />
             <Button layoutX="651.0" layoutY="81.0" mnemonicParsing="false" onAction="#onRemoveCoordinatorBtn" text="Remove Coordinator" />
-            <Button layoutX="651.0" layoutY="133.0" mnemonicParsing="false" text="Manage Coordinator" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="301.0" layoutY="27.0" styleClass="logo" AnchorPane.topAnchor="27.0">

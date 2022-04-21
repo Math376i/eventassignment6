@@ -6,7 +6,6 @@ import be.Ticket;
 import gui.model.CoordinatorModel;
 import gui.model.EventModel;
 import gui.model.TicketModel;
-import gui.util.SceneSwapper;
 import gui.util.TicketReferenceNumber;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,8 +19,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -29,9 +26,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -42,6 +36,12 @@ import java.util.ResourceBundle;
 public class CoordinatorTicketController implements Initializable {
 
 
+    @FXML
+    private Label lblMonth;
+    @FXML
+    private Label lblDay;
+    @FXML
+    private Label lblYear;
     @FXML
     private Label lblTicketRefNum;
     @FXML
@@ -72,20 +72,18 @@ public class CoordinatorTicketController implements Initializable {
     @FXML
     private TableColumn<Ticket, String> tcEventId;
 
-
     private ObservableList<Ticket> allTicketsFromEvent;
     private ObservableList<Event> allEventsFromCoordinator;
     private Coordinator currentCoordinator;
     private CoordinatorModel coordinatorModel;
     private EventModel eventModel;
     private TicketModel ticketModel;
+    private Event chosenEvent;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        
-
+        chosenEvent = null;
         coordinatorModel = new CoordinatorModel();
         eventModel = new EventModel();
         ticketModel = new TicketModel();
@@ -117,11 +115,11 @@ public class CoordinatorTicketController implements Initializable {
     /**
      * sets the ComboBox up with all events from Coordinator
      */
-    public void setComboBoxEvent(){
+    public void setComboBoxEvent() {
         allEventsFromCoordinator.clear();
         allEventsFromCoordinator.addAll(eventModel.getEventFromCoordinator(currentCoordinator));
 
-        for (Event event : allEventsFromCoordinator){
+        for (Event event : allEventsFromCoordinator) {
             comboBoxEvent.getItems().add(event.getName());
         }
     }
@@ -130,54 +128,73 @@ public class CoordinatorTicketController implements Initializable {
     /**
      * prepare tableview for tickets
      */
-    public void prepareTableview(){
+    public void prepareTableview() {
         tcEventName.setCellValueFactory(cellData -> cellData.getValue().eventNameProperty());
         tcGuestName.setCellValueFactory(cellData -> cellData.getValue().guestNameProperty());
         tcStartTime.setCellValueFactory(cellData -> cellData.getValue().startTimeProperty());
         tcAddress.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
         tcEventId.setCellValueFactory(cellData -> cellData.getValue().teventidProperty());
         tcGuestId.setCellValueFactory(cellData -> cellData.getValue().tuseridProperty());
+
     }
 
 
-    public void setTableviewForTickets(){
+    /**
+     * gets the selected event and fills tableview with thoose tickets.
+     */
+    public void setTableviewForTickets() {
         allTicketsFromEvent.clear();
 
-        for (Event event : allEventsFromCoordinator){
-            if (event.getName().equals(comboBoxEvent.getSelectionModel().getSelectedItem())){
+        for (Event event : allEventsFromCoordinator) {
+            if (event.getName().equals(comboBoxEvent.getSelectionModel().getSelectedItem())) {
                 allTicketsFromEvent.addAll(ticketModel.getTicketsFromEvent(event));
+                chosenEvent = event;
                 break;
             }
         }
         tvTickets.setItems(allTicketsFromEvent);
 
 
-
     }
 
 
+    /**
+     * actually just closes the stage.
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void onBack(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        SceneSwapper sceneSwapper = new SceneSwapper();
-        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorScreen.fxml");
         stage.close();
     }
 
 
     public void onComboBoxEvent(ActionEvent actionEvent) {
-        if (!comboBoxEvent.getSelectionModel().isEmpty()){
+        if (!comboBoxEvent.getSelectionModel().isEmpty()) {
             setTableviewForTickets();
         }
     }
 
+    /**
+     * puts the rigth data on the ticket for presentation of ticket.
+     */
     public void onTableViewTicket(MouseEvent mouseEvent) {
-        if (!tvTickets.getSelectionModel().isEmpty()){
+        if (!tvTickets.getSelectionModel().isEmpty()) {
             eventNameID.setText(tvTickets.getSelectionModel().getSelectedItem().getEventName());
             guestNameID.setText(tvTickets.getSelectionModel().getSelectedItem().getGuestName());
             addressID.setText(tvTickets.getSelectionModel().getSelectedItem().getAddress());
             startTimeID.setText(tvTickets.getSelectionModel().getSelectedItem().getStartTime());
             TicketReferenceNumber ticketReferenceNumber = new TicketReferenceNumber();
             lblTicketRefNum.setText(ticketReferenceNumber.getTicketRefNum(tvTickets.getSelectionModel().getSelectedItem().getGuestName() + tvTickets.getSelectionModel().getSelectedItem().getTuserID()));
+
+
+            System.out.println("month: " + chosenEvent.getMonth());
+            System.out.println("day: " + chosenEvent.getDay());
+            System.out.println("year: " + chosenEvent.getYear());
+            lblMonth.setText(chosenEvent.getMonth());
+            lblDay.setText(chosenEvent.getDay());
+            lblYear.setText(chosenEvent.getYear());
 
         }
 
@@ -199,9 +216,9 @@ public class CoordinatorTicketController implements Initializable {
 
 
     /**
-     *
      * TODO Move to utill Layer
      * Saves a writeableImage
+     *
      * @throws IOException
      */
     private static void saveImageFile(WritableImage writableImage,
@@ -221,11 +238,6 @@ public class CoordinatorTicketController implements Initializable {
             if (!fileName.toUpperCase().endsWith(".PNG")) {
                 file = new File(file.getAbsolutePath() + ".png");
             }
-
-            // PixelReader pixelReader = image.getPixelReader();
-            // int width = (int) image.getWidth();
-            // int height = (int) image.getHeight();
-            // WritableImage writableImage = new WritableImage(pixelReader, width, height);
 
             ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null),
                     "png", file);

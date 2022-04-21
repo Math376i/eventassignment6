@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="backgrounding2" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorTicketController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="backgrounding2" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorTicketController">
    <children>
       <AnchorPane layoutX="333.0" layoutY="24.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
       <AnchorPane layoutX="38.0" layoutY="100.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="100.0">
@@ -59,19 +59,19 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="236.0" text="Feb" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                                    <Label fx:id="lblMonth" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="236.0" text="Feb" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                                        <font>
                                           <Font name="System Bold" size="46.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </VBox>
-                              <Label alignment="CENTER" prefHeight="61.0" prefWidth="230.0" text="27" GridPane.rowIndex="3">
+                              <Label fx:id="lblDay" alignment="CENTER" prefHeight="61.0" prefWidth="230.0" text="27" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="System Bold" size="58.0" />
                                  </font>
                               </Label>
-                              <Label text="2022" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label fx:id="lblYear" text="2022" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="System Bold" size="96.0" />
                                  </font>

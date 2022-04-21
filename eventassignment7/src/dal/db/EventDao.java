@@ -27,15 +27,18 @@ public class EventDao implements IEvent {
     }
 
     @Override
-    public Event createEvent(String name, String adr, String startTime, Coordinator creator) {
+    public Event createEvent(String name, String adr, String startTime, Coordinator creator, String month, String day, String year) {
         int insertedId = -1;
         try {
-            String sqlStatement = "INSERT INTO Event(eventName ,address, startingTime, ownerId) VALUES (?, ?, ?, ?);";
+            String sqlStatement = "INSERT INTO Event(eventName ,address, startingTime, ownerId, month, day, year) VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, name);
             statement.setString(2, adr);
             statement.setString(3, startTime );
             statement.setInt(4, creator.getId());
+            statement.setString(5, month);
+            statement.setString(6, day );
+            statement.setString(7, year );
             statement.execute();
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
@@ -43,7 +46,7 @@ public class EventDao implements IEvent {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new Event(insertedId, name, adr, startTime, creator.getId());
+        return new Event(insertedId, name, adr, startTime, creator.getId(), month, day, year);
 
     }
 
@@ -70,7 +73,7 @@ public class EventDao implements IEvent {
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator) {
         ObservableList<Event> allEventsFromCoordinator = FXCollections.observableArrayList();
         try {
-            String sqlStatement = "SELECT eventID, eventName, address, startingTime, ownerid FROM Event INNER JOIN  Coordinator ON Coordinator.Coordinatorid = Event.ownerId  Where ownerid = ? ";
+            String sqlStatement = "SELECT eventID, eventName, address, startingTime, ownerid, [month], [day], [year] FROM Event INNER JOIN  Coordinator ON Coordinator.Coordinatorid = Event.ownerId  Where ownerid = ? ";
             PreparedStatement statement = con.prepareStatement(sqlStatement, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, coordinator.getId());
 
@@ -88,7 +91,11 @@ public class EventDao implements IEvent {
 
                 int ownerId = rs.getInt("ownerID");
 
-                allEventsFromCoordinator.add(new Event(id, eventName, address, startTime, ownerId));
+                String month = rs.getString("month");
+                String day = rs.getString("day");
+                String year = rs.getString("year");
+
+                allEventsFromCoordinator.add(new Event(id, eventName, address, startTime, ownerId, month, day, year));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

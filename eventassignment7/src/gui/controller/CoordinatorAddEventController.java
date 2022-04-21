@@ -18,6 +18,12 @@ import java.util.ResourceBundle;
 
 public class CoordinatorAddEventController implements Initializable {
     @FXML
+    private TextField tfMonth;
+    @FXML
+    private TextField tfDay;
+    @FXML
+    private TextField tfYear;
+    @FXML
     private TextField tfEventName;
     @FXML
     private TextField tfStartTime;
@@ -45,7 +51,7 @@ public class CoordinatorAddEventController implements Initializable {
      */
     public void onAddEvent(ActionEvent actionEvent) {
         try {
-            eventModel.createEvent(tfEventName.getText(), tfAddress.getText(), tfStartTime.getText(), currentCoordinator);
+            eventModel.createEvent(tfEventName.getText(), tfAddress.getText(), tfStartTime.getText(), currentCoordinator, tfMonth.getText(), tfDay.getText(), tfYear.getText());
 
             CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
             controller.prepareTableview();

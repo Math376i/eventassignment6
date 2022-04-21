@@ -15,8 +15,8 @@ public class EventModel {
         eventManager = new EventManager();
     }
 
-    public Event createEvent(String name, String adr, String startTime, Coordinator creator){
-        return eventManager.createEvent(name,adr,startTime,creator);
+    public Event createEvent(String name, String adr, String startTime, Coordinator creator, String month, String day, String year){
+        return eventManager.createEvent(name,adr,startTime,creator, month, day, year);
     }
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){
         return eventManager.getEventFromCoordinator(coordinator);

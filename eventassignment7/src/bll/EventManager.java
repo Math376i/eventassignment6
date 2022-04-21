@@ -24,8 +24,8 @@ public class EventManager {
         }
     }
 
-    public Event createEvent(String name, String adr, String startTime, Coordinator creator){
-       return eventDao.createEvent(name,adr,startTime,creator);
+    public Event createEvent(String name, String adr, String startTime, Coordinator creator, String month, String day, String year){
+       return eventDao.createEvent(name,adr,startTime,creator, month, day, year);
     }
 
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator){

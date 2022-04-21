@@ -41,7 +41,7 @@ import java.util.ResourceBundle;
 
 public class CoordinatorTicketController implements Initializable {
 
-    
+
     @FXML
     private Label lblTicketRefNum;
     @FXML
@@ -183,6 +183,10 @@ public class CoordinatorTicketController implements Initializable {
 
     }
 
+
+    /**
+     * gets a snapshot of the hbox(out ticket)
+     */
     public void onPrintTicket(ActionEvent actionEvent) throws IOException {
         SnapshotParameters param = new SnapshotParameters();
         param.setDepthBuffer(false);
@@ -193,6 +197,13 @@ public class CoordinatorTicketController implements Initializable {
 
     }
 
+
+    /**
+     *
+     * TODO Move to utill Layer
+     * Saves a writeableImage
+     * @throws IOException
+     */
     private static void saveImageFile(WritableImage writableImage,
                                       Stage stage) throws IOException {
         FileChooser fileChooser = new FileChooser();

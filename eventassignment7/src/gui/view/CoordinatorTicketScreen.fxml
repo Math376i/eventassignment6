@@ -92,7 +92,7 @@
                   </VBox>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="-55.0" layoutY="8.0" prefHeight="316.0" prefWidth="322.0" rotate="270.0" text="lllllllllllll">
+                        <Label alignment="CENTER" layoutX="-69.0" layoutY="62.0" prefHeight="200.0" prefWidth="322.0" rotate="270.0" text="lllllllllllll">
                            <font>
                               <Font size="96.0" />
                            </font>

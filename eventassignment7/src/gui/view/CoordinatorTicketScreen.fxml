@@ -22,7 +22,7 @@
       <AnchorPane layoutX="38.0" layoutY="100.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="100.0">
          <children>
             <Button layoutX="846.0" layoutY="601.0" mnemonicParsing="false" onAction="#onBack" prefHeight="43.0" prefWidth="54.0" text="Back" />
-            <HBox fx:id="ticketID" layoutX="93.0" layoutY="292.0" prefHeight="331.0" prefWidth="716.0" style="-fx-border-color: black;" styleClass="ticketBackground">
+            <HBox fx:id="hBoxTicket" layoutX="93.0" layoutY="292.0" prefHeight="331.0" prefWidth="716.0" style="-fx-border-color: black;" styleClass="ticketBackground">
                <children>
                   <Pane prefHeight="331.0" prefWidth="72.0" style="-fx-border-color: black;">
                      <children>
@@ -97,8 +97,6 @@
                               <Font size="96.0" />
                            </font>
                         </Label>
-                        <Button layoutX="212.0" layoutY="1.0" mnemonicParsing="false" text="Print ticket" />
-                        <Button layoutX="200.0" layoutY="39.0" mnemonicParsing="false" text="Print All Tickets" />
                      </children>
                   </Pane>
                </children>
@@ -122,9 +120,11 @@
             </Label>
             <Button layoutX="829.0" layoutY="62.0" mnemonicParsing="false" text="Check List" />
             <Button layoutX="816.0" layoutY="103.0" mnemonicParsing="false" text="Print Check List" />
+            <Button layoutX="832.0" layoutY="148.0" mnemonicParsing="false" onAction="#onPrintTicket" text="Print ticket" />
+            <Button layoutX="815.0" layoutY="196.0" mnemonicParsing="false" text="Print All Tickets" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="377.0" layoutY="25.0" styleClass="logo" AnchorPane.topAnchor="25.0">
+      <ImageView fitHeight="75.0" fitWidth="301.0" layoutX="377.0" layoutY="25.0" styleClass="logo" AnchorPane.topAnchor="25.0">
          <image>
             <Image url="@../img/logo.png" />
          </image>

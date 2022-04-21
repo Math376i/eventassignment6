@@ -10,18 +10,28 @@ import gui.util.SceneSwapper;
 import gui.util.TicketReferenceNumber;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -31,8 +41,11 @@ import java.util.ResourceBundle;
 
 public class CoordinatorTicketController implements Initializable {
 
-    public HBox ticketID;
-    public Label lblTicketRefNum;
+    
+    @FXML
+    private Label lblTicketRefNum;
+    @FXML
+    private HBox hBoxTicket;
     @FXML
     private ComboBox comboBoxEvent;
     @FXML
@@ -70,6 +83,9 @@ public class CoordinatorTicketController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        
+
         coordinatorModel = new CoordinatorModel();
         eventModel = new EventModel();
         ticketModel = new TicketModel();
@@ -166,4 +182,44 @@ public class CoordinatorTicketController implements Initializable {
         }
 
     }
+
+    public void onPrintTicket(ActionEvent actionEvent) throws IOException {
+        SnapshotParameters param = new SnapshotParameters();
+        param.setDepthBuffer(false);
+
+        WritableImage ticket = hBoxTicket.snapshot(param, null);
+
+        saveImageFile(ticket, new Stage());
+
+    }
+
+    private static void saveImageFile(WritableImage writableImage,
+                                      Stage stage) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+                "image files (*.png)", "*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file != null) {
+
+            String fileName = file.getName();
+
+            if (!fileName.toUpperCase().endsWith(".PNG")) {
+                file = new File(file.getAbsolutePath() + ".png");
+            }
+
+            // PixelReader pixelReader = image.getPixelReader();
+            // int width = (int) image.getWidth();
+            // int height = (int) image.getHeight();
+            // WritableImage writableImage = new WritableImage(pixelReader, width, height);
+
+            ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null),
+                    "png", file);
+        }
+    }
+
+
 }

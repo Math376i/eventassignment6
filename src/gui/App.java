@@ -29,7 +29,7 @@ public class App extends Application {
         TicketReferenceNumber ticketReferenceNumber = new TicketReferenceNumber();
 
         // act
-        String actualUUID = ticketReferenceNumber.getTicketRefNum("Peter hansen1001");
+        String actualUUID = ticketReferenceNumber.getTicketRefNum("");
 
         System.out.println(actualUUID);
 

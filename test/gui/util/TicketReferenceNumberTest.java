@@ -22,5 +22,5 @@ class TicketReferenceNumberTest {
         //assert - checks if actual val is equal to expected val
         Assertions.assertEquals(expectedUUID, actualUUID);
     }
-    
+
 }

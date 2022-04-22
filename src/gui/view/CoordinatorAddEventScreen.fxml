@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="421.0" minWidth="500.0" prefHeight="586.0" prefWidth="648.0" styleClass="backgrounding" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CoordinatorAddEventController">
+   <children>
+      <AnchorPane layoutX="124.0" layoutY="25.0" prefHeight="68.0" prefWidth="399.0" style="-fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: Black;" styleClass="whitebackground" />
+      <AnchorPane layoutX="116.0" layoutY="125.0" minHeight="30.0" minWidth="30.0" prefHeight="371.0" prefWidth="415.0" style="-fx-background-radius: 40; -fx-border-radius: 40;" styleClass="whitebackground">
+         <children>
+            <TextField fx:id="tfEventName" layoutX="181.0" layoutY="36.0" prefHeight="22.0" prefWidth="212.0" promptText="Name" text="Event Name" />
+            <TextField fx:id="tfStartTime" layoutX="181.0" layoutY="105.0" prefHeight="22.0" prefWidth="212.0" text="Starting Time" />
+            <TextField fx:id="tfAddress" layoutX="181.0" layoutY="66.0" prefHeight="22.0" prefWidth="212.0" text="Address" />
+            <Label layoutX="32.0" layoutY="38.0" text="Event Name" />
+            <Label layoutX="32.0" layoutY="68.0" text="Address of Event" />
+            <Label layoutX="32.0" layoutY="107.0" text="Starting time" />
+            <Button layoutX="353.0" layoutY="329.0" mnemonicParsing="false" onAction="#onAddEvent" text="Add" />
+            <Label layoutX="30.0" layoutY="168.0" text="Month in Short" />
+            <TextField fx:id="tfMonth" layoutX="181.0" layoutY="165.0" prefHeight="22.0" prefWidth="212.0" text="Feb, sep ect." />
+            <Label layoutX="30.0" layoutY="206.0" text="Day number" />
+            <TextField fx:id="tfDay" layoutX="179.0" layoutY="204.0" prefHeight="22.0" prefWidth="212.0" text="1, 2, 3, 4 ect. " />
+            <Label layoutX="30.0" layoutY="241.0" text="year " />
+            <TextField fx:id="tfYear" layoutX="179.0" layoutY="238.0" prefHeight="22.0" prefWidth="212.0" text="exmple 2022" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="75.0" fitWidth="313.0" layoutX="167.0" layoutY="25.0" styleClass="logo" AnchorPane.bottomAnchor="486.0" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="168.0" AnchorPane.topAnchor="25.0">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

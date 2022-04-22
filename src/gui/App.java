@@ -25,5 +25,13 @@ public class App extends Application {
         primaryStage.setTitle("Event Manager");
         primaryStage.show();
 
+
+        TicketReferenceNumber ticketReferenceNumber = new TicketReferenceNumber();
+
+        // act
+        String actualUUID = ticketReferenceNumber.getTicketRefNum("Peter hansen1001");
+
+        System.out.println(actualUUID);
+
     }
 }

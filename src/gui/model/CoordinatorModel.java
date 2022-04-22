@@ -28,18 +28,4 @@ public class CoordinatorModel {
     }
 
 
-    public Coordinator getCurrentCoordinator() {
-        return coordinatorManager.getCurrentCoordinator();
-    }
-/*
-    public void updateKoordinator(Admin admin) throws Exception {
-        AdminManager.updateKoordinator(admin);
-    }
-
-    public boolean deletekoordinator(Admin koordinatorDelete) {
-        return AdminManager.deleteKoordinator(koordinatorDelete);
-    }
-
-     */
-
 }

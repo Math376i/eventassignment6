@@ -63,20 +63,6 @@ public class CoordinatorDAO implements ICoordinator {
     }
 
     @Override
-    public void updateCoordinator(Coordinator coordinator) throws Exception {
-        String sql = "UPDATE eventAssignment SET username=? password=? WHERE Id=?;";
-        PreparedStatement preparedStatement = con.prepareStatement(sql);
-        preparedStatement.setString(1, coordinator.getUsername());
-        preparedStatement.setString(2, coordinator.getPassword());
-
-        int affectedRows = preparedStatement.executeUpdate();
-        if (affectedRows != 1) {
-
-        }
-
-    }
-
-    @Override
     public boolean deleteCoordinator(Coordinator deleteCoordinator) {
         try {
             String sqlStatement = "DELETE FROM Coordinator WHERE CoordinatorId=?";
@@ -102,7 +88,4 @@ public class CoordinatorDAO implements ICoordinator {
         return null;
     }
 
-    public Coordinator getCurrentCoordinator() {
-        return currentCoordinator;
-    }
 }

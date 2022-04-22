@@ -50,11 +50,6 @@ public class TicketDao implements ITicket {
     }
 
     @Override
-    public List<Ticket> getTicketsFromEventAndGuest(Event event, User user) {
-        return null;
-    }
-
-    @Override
     public Ticket createTicket(Event event, User user) {
         int insertedId1 = -1;
         int insertedId2 = -1;

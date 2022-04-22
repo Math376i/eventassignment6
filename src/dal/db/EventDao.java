@@ -51,11 +51,6 @@ public class EventDao implements IEvent {
     }
 
     @Override
-    public void updateEvent(User user) throws Exception {
-
-    }
-
-    @Override
     public boolean removeEvent(Event event) {
         try {
             String sqlStatement = "DELETE FROM Event WHERE EventID=?";

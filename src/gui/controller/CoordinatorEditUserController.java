@@ -56,9 +56,12 @@ public class CoordinatorEditUserController implements Initializable {
     }
 
 
-
+    /**
+     * edits the user by deleting the user and creating a new one plus the new ticket.
+     */
     public void onEditUser(ActionEvent actionEvent) {
         try {
+            // creates a new user/guest depending on is an event is selected.
             if (comboboxEvents.getSelectionModel().isEmpty()){
                 userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), -1);
             }
@@ -72,8 +75,7 @@ public class CoordinatorEditUserController implements Initializable {
                 }
             }
 
-
-
+            // updates tableview users in our main Coordinator Screen
             CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
             controller.setTableviewForUser();
 
@@ -83,10 +85,16 @@ public class CoordinatorEditUserController implements Initializable {
 
     }
 
+    /**
+     *closses the stage and updating the view for coordinator in main coordinator screen
+     */
     public void onClose(ActionEvent actionEvent)  {
+
+        // updates the tableview
         CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
         controller.prepareTableview();
 
+        // closses the stage.
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }

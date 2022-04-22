@@ -113,10 +113,16 @@ public class CoordinatorScreenController implements Initializable {
         setTableviewForEvents();
     }
 
+    /**
+     * sets the tableview for the events
+     */
     public void setTableviewForEvents() {
         tvEvents.setItems(getEventFromCoordinator());
     }
 
+    /**
+     * sets the tableview for the users/guest for a specific event or for all events.
+     */
     public void setTableviewForUser() {
 
         // Clear the list
@@ -141,7 +147,10 @@ public class CoordinatorScreenController implements Initializable {
     }
 
 
-
+    /**
+     *  gets a specific user object.
+     * @return the selected user from tableview
+     */
     public User getSelectedUser(){
         return tvGuest.getSelectionModel().getSelectedItem();
     }
@@ -208,25 +217,34 @@ public class CoordinatorScreenController implements Initializable {
     }
 
 
+    /**
+     * calls method for updating tableview for user when clicked on the event tableview.
+     */
     public void updateGuestList(MouseEvent mouseEvent) {
         setTableviewForUser();
     }
 
+    /**
+     *  shows all guest / user for an event.
+     * @param actionEvent when clicked on the btn.
+     */
     public void onShowAllGuestBtn(ActionEvent actionEvent) {
         tvEvents.getSelectionModel().clearSelection();
         setTableviewForUser();
     }
 
+    /**
+     * opens the ticket screen, for the event Coordinator.
+     */
     public void onTicketsBtn(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "CoordinatorTicketScreen.fxml");
     }
 
+    /**
+     * opens the stage with new scene of edit user.
+     */
     public void onEditGuest(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(),"CoordinatorEditUserScreen.fxml");
-    }
-
-    public void onEditEvent(ActionEvent actionEvent) throws IOException {
-        sceneSwapper.sceneSwitch(new Stage(), "CoordinatorEditEventScreen.fxml");
     }
 }
 

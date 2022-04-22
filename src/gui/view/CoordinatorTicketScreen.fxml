@@ -119,9 +119,7 @@
                </font>
             </Label>
             <Button layoutX="829.0" layoutY="62.0" mnemonicParsing="false" text="Check List" />
-            <Button layoutX="816.0" layoutY="103.0" mnemonicParsing="false" text="Print Check List" />
-            <Button layoutX="832.0" layoutY="148.0" mnemonicParsing="false" onAction="#onPrintTicket" text="Print ticket" />
-            <Button layoutX="815.0" layoutY="196.0" mnemonicParsing="false" text="Print All Tickets" />
+            <Button layoutX="827.0" layoutY="102.0" mnemonicParsing="false" onAction="#onPrintTicket" text="Print ticket" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="75.0" fitWidth="301.0" layoutX="377.0" layoutY="25.0" styleClass="logo" AnchorPane.topAnchor="25.0">

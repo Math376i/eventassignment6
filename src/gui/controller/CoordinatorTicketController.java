@@ -170,6 +170,9 @@ public class CoordinatorTicketController implements Initializable {
     }
 
 
+    /**
+     * Checks for selected event, and sets tableview for that event.
+     */
     public void onComboBoxEvent(ActionEvent actionEvent) {
         if (!comboBoxEvent.getSelectionModel().isEmpty()) {
             setTableviewForTickets();
@@ -216,19 +219,19 @@ public class CoordinatorTicketController implements Initializable {
 
 
     /**
-     * TODO Move to utill Layer
      * Saves a writeableImage
      *
      * @throws IOException
      */
     private static void saveImageFile(WritableImage writableImage,
                                       Stage stage) throws IOException {
+        // sets up object.
         FileChooser fileChooser = new FileChooser();
-
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
                 "image files (*.png)", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
 
+        //which stage the filechooser should pop up on
         File file = fileChooser.showSaveDialog(stage);
 
         if (file != null) {

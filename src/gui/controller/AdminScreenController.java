@@ -34,9 +34,9 @@ public class AdminScreenController implements Initializable {
     @FXML
     private TableColumn<Coordinator, String> tcPassword;
 
+
     private SceneSwapper sceneSwapper;
     private CoordinatorModel coordinatorModel;
-
     private ObservableList<Coordinator> allCoordinators;
 
 
@@ -50,7 +50,7 @@ public class AdminScreenController implements Initializable {
     }
 
     /**
-     *
+     * opens create coordinator view for admin
      */
     public void onAddCoordinatorBtn(ActionEvent actionEvent) throws IOException {
         sceneSwapper.sceneSwitch(new Stage(), "AdminAddEventManagerScreen.fxml");
@@ -69,8 +69,7 @@ public class AdminScreenController implements Initializable {
 
     /**
      * returns all coordinators
-     *
-     * @return
+     * @return list of coordinators
      */
     private ObservableList<Coordinator> getAllCoordinators() {
         allCoordinators.clear();
@@ -81,8 +80,6 @@ public class AdminScreenController implements Initializable {
 
     /**
      * removes a coordinator
-     *
-     * @param actionEvent
      */
     public void onRemoveCoordinatorBtn(ActionEvent actionEvent) {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "You want to remove this Coordinator");

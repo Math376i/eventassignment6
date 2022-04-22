@@ -92,6 +92,7 @@ public class CoordinatorAddUserController implements Initializable {
      */
     public void onAddUser(ActionEvent actionEvent) {
         try {
+            // adds a user depending on if a event is selected.
             if (comboboxEvents.getSelectionModel().isEmpty()){
                 userModel.createUser(tfName.getText(), tfEmail.getText(), Integer.parseInt(tfPhoneNumber.getText()), -1);
             }
@@ -107,6 +108,7 @@ public class CoordinatorAddUserController implements Initializable {
                 tfEmail.setText("");
                 tfPhoneNumber.setText("");
 
+                // updates the coordinator screen.
             CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
             controller.setTableviewForUser();
 
@@ -119,9 +121,11 @@ public class CoordinatorAddUserController implements Initializable {
      * Closes the stage
      */
     public void onClose(ActionEvent actionEvent) {
+        //updates coordinator screen
         CoordinatorScreenController controller = new SceneSwapper().getCoordinatorController();
         controller.prepareTableview();
 
+        //closes the screen
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }

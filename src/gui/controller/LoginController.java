@@ -22,7 +22,7 @@ public class LoginController implements Initializable {
     private TextField lblUsername;
     @FXML
     private TextField lblPassword;
-
+    @FXML
     private CoordinatorModel coordinatorModel;
 
 

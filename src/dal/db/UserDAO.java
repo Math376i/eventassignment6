@@ -17,6 +17,10 @@ public class UserDAO implements IUser {
     }
 
 
+    /**
+     * gets a list of all users.
+     * @return list of users.
+     */
     @Override
     public List<User> getUsers() {
         List<User> allUser = new ArrayList<>();
@@ -39,6 +43,16 @@ public class UserDAO implements IUser {
         return allUser;
     }
 
+    /**
+     * creates users / guest
+     * @param name of the user
+     * @param email of the user
+     * @param phoneNumber of the user
+     * @param userEventID the event that the user is going to.
+     * @return the user/guest  object.
+     *
+     * will set null as userEventID if no event was selected by getting -1 as userEventID
+     */
     @Override
     public User createUser(String name, String email, int phoneNumber, Integer userEventID) {
         int insertedId = -1;
@@ -61,6 +75,11 @@ public class UserDAO implements IUser {
         return new User(insertedId,name,email,phoneNumber, userEventID);
     }
 
+    /**
+     * removes a user/guest.
+     * @param user the user object
+     * @return true or false. true if user was deleted.
+     */
     @Override
     public boolean removeUser(User user) {
         try {
@@ -76,6 +95,11 @@ public class UserDAO implements IUser {
     }
 
 
+    /**
+     * gets all users from a Event.
+     * @param event the event searching for guest/user.
+     * @return list of user object that is attending that specific event.
+     */
     public List<User> getUsersFromEvent(Event event) {
         List<User> allUsersFromEvent = new ArrayList<>();
         try {

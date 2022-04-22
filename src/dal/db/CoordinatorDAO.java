@@ -19,6 +19,10 @@ public class CoordinatorDAO implements ICoordinator {
     }
 
 
+    /**
+     *  get all coordinators
+     * @return a list of Coordinators
+     */
     public List<Coordinator> getCoordinators() {
         List<Coordinator> allCoordinators = new ArrayList<>();
         try {
@@ -41,6 +45,14 @@ public class CoordinatorDAO implements ICoordinator {
         return allCoordinators;
     }
 
+    /**
+     * Creates a Coordinator
+     *
+     * @param name the name of the Coordinator
+     * @param username The username of Coordinator
+     * @param password The password of the Coordinator
+     * @return the coordinator object
+     */
     @Override
     public Coordinator createCoordinator(String name, String username, String password) {
 
@@ -62,6 +74,11 @@ public class CoordinatorDAO implements ICoordinator {
 
     }
 
+    /**
+     * deletes a Coordinator object
+     * @param deleteCoordinator the coordiantor that should be deleted
+     * @return the true or false depending on if the coordinator was deleted.
+     */
     @Override
     public boolean deleteCoordinator(Coordinator deleteCoordinator) {
         try {
@@ -76,6 +93,12 @@ public class CoordinatorDAO implements ICoordinator {
         return false;
     }
 
+    /**
+     * gets a specific Coordinator for its username & password
+     * @param username the username of the Coordinator
+     * @param password the password of the Coordinator
+     * @return the coordinator.
+     */
     public Coordinator getSpecificCoordinator(String username, String password) {
 
         List<Coordinator> coordinators = new ArrayList<>();

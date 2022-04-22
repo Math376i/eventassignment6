@@ -20,7 +20,10 @@ public class EventDao implements IEvent {
     }
 
 
-
+    /**
+     * gets all events
+     * @return a list of all Events
+     */
     @Override
     public List<Event> getEvents() {
         return null;
@@ -50,6 +53,11 @@ public class EventDao implements IEvent {
 
     }
 
+    /**
+     * remove a specific event
+     * @param event that should be deleted.
+     * @return true or false depending of if event was deleted.
+     */
     @Override
     public boolean removeEvent(Event event) {
         try {
@@ -64,6 +72,11 @@ public class EventDao implements IEvent {
         return false;
     }
 
+    /**
+     * gets all events from on Coordinator
+     * @param coordinator the coordinator object which is the owner of the events
+     * @return a list of all events.
+     */
     @Override
     public ObservableList<Event> getEventFromCoordinator(Coordinator coordinator) {
         ObservableList<Event> allEventsFromCoordinator = FXCollections.observableArrayList();

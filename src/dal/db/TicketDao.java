@@ -18,6 +18,11 @@ public class TicketDao implements ITicket {
         this.con = con;
     }
 
+    /**
+     * gets a list of tickets for an event.
+     * @param event that the tickets should belong too.
+     * @return the list of tickets.
+     */
     @Override
     public List<Ticket> getTicketsFromEvent(Event event) {
         ObservableList<Ticket> allTicketsFromEvent = FXCollections.observableArrayList();
@@ -49,6 +54,12 @@ public class TicketDao implements ITicket {
         return allTicketsFromEvent;
     }
 
+    /**
+     * creates a ticket for an event & user/guest.
+     * @param event the event for the ticket
+     * @param user the user for the ticket
+     * @return the ticket object.
+     */
     @Override
     public Ticket createTicket(Event event, User user) {
         int insertedId1 = -1;
@@ -73,6 +84,12 @@ public class TicketDao implements ITicket {
         return new Ticket(insertedId1, insertedId2, event.getName(), user.getName(), event.getAddress(), event.getStartTime());
     }
 
+
+    /**
+     * deletes a ticket.
+     * @param ticket the ticket object that should be deleted
+     * @return true or false. true if ticket got deleted.
+     */
     @Override
     public boolean deleteTicket(Ticket ticket) {
         try {
